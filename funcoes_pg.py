@@ -1,4 +1,4 @@
-import psycopg2, os, socket, wmi, os
+import psycopg2, os, socket, os
 
 ip = socket.gethostbyname(socket.gethostname())
 
@@ -53,9 +53,10 @@ SET PGDATABASE=postgres\n\n''')
 
 
 def importa_base_zerada():
-    import psutil
     os.system('start base.bat')
     
+    # import wmi
+
     # f = wmi.WMI()
 
     # for process in f.Win32_Process():
