@@ -17,7 +17,6 @@ def base_ja_existe(nome_base):
     cur.execute(f'''select datname from pg_database''')
     bases = cur.fetchall()
 
-
     for nome in bases:
         if (nome[0] == nome_base):
             return 1
@@ -54,30 +53,6 @@ SET PGDATABASE=postgres\n\n''')
 
 def importa_base_zerada():
     os.system('start base.bat')
-    
-    # import wmi
-
-    # f = wmi.WMI()
-
-    # for process in f.Win32_Process():
-    #     if (process.Name == 'cmd.exe'):
-    #         pid_cmd = int(process.Handle)
-
-    #         print(pid_cmd)
-
-    #     if (process.Name == 'psql.exe'):
-    #         pid_pg = int(process.Handle)
-
-    #         print(pid_pg)
-
-
-    # while True:
-    #     print('w')
-    #     pids = psutil.pids()
-
-    #     if(pid_pg not in pids):
-    #         os.kill(int(pid_cmd), 1)
-    #         break
 
 
 def dump():
