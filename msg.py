@@ -1,6 +1,12 @@
 from PySide6.QtWidgets import  QVBoxLayout, QLabel, QWidget
+from PySide6.QtGui import QKeyEvent
+from PySide6.QtCore import Qt
 
 class msg(QWidget):
+    def keyPressEvent(self, event: QKeyEvent):
+        if event.key() == Qt.Key_Escape:
+            self.close()
+
     def __init__(self, num):
         super().__init__()
         
