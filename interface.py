@@ -21,6 +21,8 @@ from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QFrame, QHBoxL
     QVBoxLayout, QWidget)
 import files_rc
 import files_rc
+from img_bin import binario
+
 
 class Ui_migr(object):
     def setupUi(self, migr):
@@ -626,7 +628,12 @@ class Ui_migr(object):
         font4.setPointSize(40)
         self.label_7.setFont(font4)
         self.label_7.setStyleSheet(u"")
-        self.label_7.setPixmap(QPixmap(u"imgs/logo.png"))
+        # self.label_7.setPixmap(QPixmap(u"imgs/logo.png"))
+
+        pixmap = QPixmap()
+        pixmap.loadFromData(binario(3))
+        self.label_7.setPixmap(pixmap)
+
         self.label_7.setScaledContents(True)
         self.label_7.setAlignment(Qt.AlignCenter)
         self.btn_vai_firebird = QPushButton(self.frame_div_content_6)
@@ -792,7 +799,11 @@ class Ui_migr(object):
         self.label_3 = QLabel(self.frame)
         self.label_3.setObjectName(u"label_3")
         self.label_3.setGeometry(QRect(60, 0, 151, 121))
-        self.label_3.setPixmap(QPixmap(u"imgs/firebird.png"))
+        # self.label_3.setPixmap(QPixmap(u"imgs/firebird.png"))
+
+        pixmap.loadFromData(binario(0))
+        self.label_3.setPixmap(pixmap)
+
         self.label_3.setScaledContents(True)
         self.labelBoxBlenderInstalation_2 = QLabel(self.frame)
         self.labelBoxBlenderInstalation_2.setObjectName(u"labelBoxBlenderInstalation_2")
@@ -967,7 +978,11 @@ class Ui_migr(object):
         self.label_4 = QLabel(self.frame_2)
         self.label_4.setObjectName(u"label_4")
         self.label_4.setGeometry(QRect(10, 40, 151, 121))
-        self.label_4.setPixmap(QPixmap(u"imgs/postgresql.png"))
+        # self.label_4.setPixmap(QPixmap(u"imgs/postgresql.png"))
+
+        pixmap.loadFromData(binario(2))
+        self.label_4.setPixmap(pixmap)
+
         self.label_4.setScaledContents(True)
         self.label_4.setWordWrap(False)
         self.labelBoxBlenderInstalation_7 = QLabel(self.frame_2)
@@ -1193,7 +1208,12 @@ class Ui_migr(object):
         self.label_8 = QLabel(self.frame_4)
         self.label_8.setObjectName(u"label_8")
         self.label_8.setGeometry(QRect(10, 40, 151, 120))
-        self.label_8.setPixmap(QPixmap(u"imgs/check.png"))
+        # self.label_8.setPixmap(QPixmap(u"imgs/check.png"))
+
+
+        pixmap.loadFromData(binario(1))
+        self.label_8.setPixmap(pixmap)
+
         self.label_8.setScaledContents(True)
         self.btn_volta_postgres = QPushButton(self.frame_4)
         self.btn_volta_postgres.setObjectName(u"btn_volta_postgres")
@@ -1327,7 +1347,11 @@ class Ui_migr(object):
         self.label_9.setGeometry(QRect(90, 70, 231, 61))
         self.label_9.setFont(font4)
         self.label_9.setStyleSheet(u"")
-        self.label_9.setPixmap(QPixmap(u"imgs/logo.png"))
+        # self.label_9.setPixmap(QPixmap(u"imgs/logo.png"))
+
+        pixmap.loadFromData(binario(3))
+        self.label_9.setPixmap(pixmap)
+
         self.label_9.setScaledContents(True)
         self.label_9.setAlignment(Qt.AlignCenter)
         self.btn_concluir = QPushButton(self.frame_div_content_8)
