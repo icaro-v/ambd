@@ -1,4 +1,5 @@
 import psycopg2, os, socket, subprocess
+from time import sleep
 
 ip = socket.gethostbyname(socket.gethostname())
 

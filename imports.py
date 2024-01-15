@@ -6,5 +6,6 @@ from msg import *
 from tabelas import *
 from interface import Ui_migr
 from img_bin import binario
+from time import sleep
 
 import sys, os, socket, io

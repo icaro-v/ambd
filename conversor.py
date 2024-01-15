@@ -143,7 +143,8 @@ class ui(QMainWindow, QWidget, Ui_migr):
             return
 
         if ((len(caminho_base_zerada) > 0) and (caminho_base_zerada.isspace() == False)):
-            # self.setCursor(QCursor.setShape())
+            self.setCursor(Qt.WaitCursor)
+
 
             importa_base_zerada(self.nome_nova_base.text(), caminho_base_zerada)
 

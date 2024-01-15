@@ -358,8 +358,7 @@ class Tabelas:
 
     def aumenta(self, barra):
        progressBar = barra
-       valor = progressBar.value() + 6 
-       progressBar.setValue(valor)
+       progressBar.setValue(progressBar.value() + 6)
 
 
     def migrar(self, barra):
