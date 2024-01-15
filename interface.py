@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interface.ui'
+## Form generated from reading UI file 'Designer_Tarifador.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.5.1
 ##
@@ -17,25 +17,22 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QFrame, QHBoxLayout,
     QLabel, QLineEdit, QMainWindow, QProgressBar,
-    QPushButton, QSizePolicy, QStackedWidget, QTextBrowser,
-    QVBoxLayout, QWidget)
-import files_rc
-import files_rc
-from img_bin import binario
-
+    QPushButton, QSizePolicy, QStackedWidget, QTabWidget,
+    QTextBrowser, QVBoxLayout, QWidget)
 
 class Ui_migr(object):
     def setupUi(self, migr):
         if not migr.objectName():
             migr.setObjectName(u"migr")
-        migr.resize(1126, 700)
+        migr.setEnabled(True)
+        migr.resize(1144, 720)
         sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(migr.sizePolicy().hasHeightForWidth())
         migr.setSizePolicy(sizePolicy)
-        migr.setMinimumSize(QSize(1126, 700))
-        migr.setMaximumSize(QSize(1126, 700))
+        migr.setMinimumSize(QSize(1134, 720))
+        migr.setMaximumSize(QSize(1144, 720))
         palette = QPalette()
         brush = QBrush(QColor(255, 255, 255, 255))
         brush.setStyle(Qt.SolidPattern)
@@ -120,6 +117,10 @@ class Ui_migr(object):
         font.setFamilies([u"Segoe UI"])
         font.setPointSize(10)
         migr.setFont(font)
+        icon = QIcon()
+        icon.addFile(u"conversor.ico", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u"conversor.ico", QSize(), QIcon.Normal, QIcon.On)
+        migr.setWindowIcon(icon)
         migr.setStyleSheet(u"QMainWindow {background: transparent; }\n"
 "QToolTip {\n"
 "	color: #ffffff;\n"
@@ -127,6 +128,9 @@ class Ui_migr(object):
 "	border: 1px solid rgb(40, 40, 40);\n"
 "	border-radius: 2px;\n"
 "}")
+        migr.setToolButtonStyle(Qt.ToolButtonIconOnly)
+        migr.setTabShape(QTabWidget.Rounded)
+        migr.setUnifiedTitleAndToolBarOnMac(True)
         self.centralwidget = QWidget(migr)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setStyleSheet(u"background: transparent;\n"
@@ -403,6 +407,7 @@ class Ui_migr(object):
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.frame_label_top_btns.sizePolicy().hasHeightForWidth())
         self.frame_label_top_btns.setSizePolicy(sizePolicy1)
+        self.frame_label_top_btns.setStyleSheet(u"background-color: rgb(44, 49, 60);")
         self.frame_label_top_btns.setFrameShape(QFrame.NoFrame)
         self.frame_label_top_btns.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_10 = QHBoxLayout(self.frame_label_top_btns)
@@ -412,6 +417,7 @@ class Ui_migr(object):
         self.frame_icon_top_bar = QFrame(self.frame_label_top_btns)
         self.frame_icon_top_bar.setObjectName(u"frame_icon_top_bar")
         self.frame_icon_top_bar.setMaximumSize(QSize(30, 30))
+        self.frame_icon_top_bar.setCursor(QCursor(Qt.ArrowCursor))
         self.frame_icon_top_bar.setStyleSheet(u"background: transparent;\n"
 "background-image: url(:/16x16/icons/16x16/cil-transfer.png);\n"
 "background-position: center;\n"
@@ -422,103 +428,8 @@ class Ui_migr(object):
 
         self.horizontalLayout_10.addWidget(self.frame_icon_top_bar)
 
-        self.label_title_bar_top = QLabel(self.frame_label_top_btns)
-        self.label_title_bar_top.setObjectName(u"label_title_bar_top")
-        font1 = QFont()
-        font1.setFamilies([u"Segoe UI"])
-        font1.setPointSize(10)
-        font1.setBold(True)
-        self.label_title_bar_top.setFont(font1)
-        self.label_title_bar_top.setStyleSheet(u"background: transparent;\n"
-"")
-
-        self.horizontalLayout_10.addWidget(self.label_title_bar_top)
-
 
         self.horizontalLayout_4.addWidget(self.frame_label_top_btns)
-
-        self.frame_btns_right = QFrame(self.frame_top_btns)
-        self.frame_btns_right.setObjectName(u"frame_btns_right")
-        sizePolicy1.setHeightForWidth(self.frame_btns_right.sizePolicy().hasHeightForWidth())
-        self.frame_btns_right.setSizePolicy(sizePolicy1)
-        self.frame_btns_right.setMaximumSize(QSize(120, 16777215))
-        self.frame_btns_right.setFrameShape(QFrame.NoFrame)
-        self.frame_btns_right.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_5 = QHBoxLayout(self.frame_btns_right)
-        self.horizontalLayout_5.setSpacing(0)
-        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
-        self.horizontalLayout_5.setContentsMargins(0, 0, 0, 0)
-        self.btn_minimize = QPushButton(self.frame_btns_right)
-        self.btn_minimize.setObjectName(u"btn_minimize")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Expanding)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.btn_minimize.sizePolicy().hasHeightForWidth())
-        self.btn_minimize.setSizePolicy(sizePolicy2)
-        self.btn_minimize.setMinimumSize(QSize(40, 0))
-        self.btn_minimize.setMaximumSize(QSize(40, 16777215))
-        self.btn_minimize.setStyleSheet(u"QPushButton {	\n"
-"	border: none;\n"
-"	background-color: transparent;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgb(52, 59, 72);\n"
-"}\n"
-"QPushButton:pressed {	\n"
-"	background-color: rgb(85, 170, 255);\n"
-"}")
-        icon = QIcon()
-        icon.addFile(u":/16x16/icons/16x16/cil-window-minimize.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_minimize.setIcon(icon)
-
-        self.horizontalLayout_5.addWidget(self.btn_minimize)
-
-        self.btn_maximize_restore = QPushButton(self.frame_btns_right)
-        self.btn_maximize_restore.setObjectName(u"btn_maximize_restore")
-        sizePolicy2.setHeightForWidth(self.btn_maximize_restore.sizePolicy().hasHeightForWidth())
-        self.btn_maximize_restore.setSizePolicy(sizePolicy2)
-        self.btn_maximize_restore.setMinimumSize(QSize(40, 0))
-        self.btn_maximize_restore.setMaximumSize(QSize(40, 16777215))
-        self.btn_maximize_restore.setStyleSheet(u"QPushButton {	\n"
-"	border: none;\n"
-"	background-color: transparent;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgb(52, 59, 72);\n"
-"}\n"
-"QPushButton:pressed {	\n"
-"	background-color: rgb(85, 170, 255);\n"
-"}")
-        icon1 = QIcon()
-        icon1.addFile(u":/16x16/icons/16x16/cil-window-maximize.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_maximize_restore.setIcon(icon1)
-
-        self.horizontalLayout_5.addWidget(self.btn_maximize_restore)
-
-        self.btn_close = QPushButton(self.frame_btns_right)
-        self.btn_close.setObjectName(u"btn_close")
-        sizePolicy2.setHeightForWidth(self.btn_close.sizePolicy().hasHeightForWidth())
-        self.btn_close.setSizePolicy(sizePolicy2)
-        self.btn_close.setMinimumSize(QSize(40, 0))
-        self.btn_close.setMaximumSize(QSize(40, 16777215))
-        self.btn_close.setStyleSheet(u"QPushButton {	\n"
-"	border: none;\n"
-"	background-color: transparent;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgb(52, 59, 72);\n"
-"}\n"
-"QPushButton:pressed {	\n"
-"	background-color: rgb(85, 170, 255);\n"
-"}")
-        icon2 = QIcon()
-        icon2.addFile(u":/16x16/icons/16x16/cil-x.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_close.setIcon(icon2)
-
-        self.horizontalLayout_5.addWidget(self.btn_close)
-
-
-        self.horizontalLayout_4.addWidget(self.frame_btns_right, 0, Qt.AlignRight)
 
 
         self.verticalLayout_2.addWidget(self.frame_top_btns)
@@ -526,7 +437,7 @@ class Ui_migr(object):
         self.frame_top_info = QFrame(self.frame_top_right)
         self.frame_top_info.setObjectName(u"frame_top_info")
         self.frame_top_info.setMaximumSize(QSize(16777215, 65))
-        self.frame_top_info.setStyleSheet(u"background-color: rgb(39, 44, 54);")
+        self.frame_top_info.setStyleSheet(u"background-color: rgb(44, 49, 60);")
         self.frame_top_info.setFrameShape(QFrame.NoFrame)
         self.frame_top_info.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_8 = QHBoxLayout(self.frame_top_info)
@@ -536,9 +447,9 @@ class Ui_migr(object):
         self.label_top_info_1 = QLabel(self.frame_top_info)
         self.label_top_info_1.setObjectName(u"label_top_info_1")
         self.label_top_info_1.setMaximumSize(QSize(16777215, 15))
-        font2 = QFont()
-        font2.setFamilies([u"Segoe UI"])
-        self.label_top_info_1.setFont(font2)
+        font1 = QFont()
+        font1.setFamilies([u"Segoe UI"])
+        self.label_top_info_1.setFont(font1)
         self.label_top_info_1.setStyleSheet(u"color: rgb(98, 103, 111); ")
 
         self.horizontalLayout_8.addWidget(self.label_top_info_1)
@@ -547,10 +458,10 @@ class Ui_migr(object):
         self.label_top_info_2.setObjectName(u"label_top_info_2")
         self.label_top_info_2.setMinimumSize(QSize(0, 0))
         self.label_top_info_2.setMaximumSize(QSize(250, 20))
-        font3 = QFont()
-        font3.setFamilies([u"Segoe UI"])
-        font3.setBold(True)
-        self.label_top_info_2.setFont(font3)
+        font2 = QFont()
+        font2.setFamilies([u"Segoe UI"])
+        font2.setBold(True)
+        self.label_top_info_2.setFont(font2)
         self.label_top_info_2.setStyleSheet(u"color: rgb(98, 103, 111);")
         self.label_top_info_2.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
@@ -567,11 +478,11 @@ class Ui_migr(object):
 
         self.frame_center = QFrame(self.frame_main)
         self.frame_center.setObjectName(u"frame_center")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.frame_center.sizePolicy().hasHeightForWidth())
-        self.frame_center.setSizePolicy(sizePolicy3)
+        sizePolicy2 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.frame_center.sizePolicy().hasHeightForWidth())
+        self.frame_center.setSizePolicy(sizePolicy2)
         self.frame_center.setStyleSheet(u"background-color: rgb(40, 44, 52);")
         self.frame_center.setFrameShape(QFrame.NoFrame)
         self.frame_center.setFrameShadow(QFrame.Raised)
@@ -598,14 +509,9 @@ class Ui_migr(object):
         self.verticalLayout_9.setContentsMargins(5, 5, 5, 5)
         self.paginas = QStackedWidget(self.frame_content)
         self.paginas.setObjectName(u"paginas")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Minimum)
-        sizePolicy4.setHorizontalStretch(0)
-        sizePolicy4.setVerticalStretch(0)
-        sizePolicy4.setHeightForWidth(self.paginas.sizePolicy().hasHeightForWidth())
-        self.paginas.setSizePolicy(sizePolicy4)
+        self.paginas.setMinimumSize(QSize(1114, 600))
+        self.paginas.setMaximumSize(QSize(1114, 600))
         self.paginas.setStyleSheet(u"background: transparent;")
-        self.paginas.setFrameShadow(QFrame.Plain)
-        self.paginas.setLineWidth(1)
         self.bemvindo = QWidget()
         self.bemvindo.setObjectName(u"bemvindo")
         self.frame_div_content_6 = QFrame(self.bemvindo)
@@ -613,8 +519,6 @@ class Ui_migr(object):
         self.frame_div_content_6.setGeometry(QRect(350, 40, 411, 500))
         self.frame_div_content_6.setMinimumSize(QSize(0, 500))
         self.frame_div_content_6.setMaximumSize(QSize(16777215, 110))
-        self.frame_div_content_6.setFocusPolicy(Qt.ClickFocus)
-        self.frame_div_content_6.setContextMenuPolicy(Qt.CustomContextMenu)
         self.frame_div_content_6.setStyleSheet(u"background-color: rgb(41, 45, 56);\n"
 "border-radius: 5px;\n"
 "")
@@ -623,27 +527,22 @@ class Ui_migr(object):
         self.label_7 = QLabel(self.frame_div_content_6)
         self.label_7.setObjectName(u"label_7")
         self.label_7.setGeometry(QRect(90, 70, 231, 61))
-        font4 = QFont()
-        font4.setFamilies([u"Segoe UI"])
-        font4.setPointSize(40)
-        self.label_7.setFont(font4)
+        font3 = QFont()
+        font3.setFamilies([u"Segoe UI"])
+        font3.setPointSize(40)
+        self.label_7.setFont(font3)
         self.label_7.setStyleSheet(u"")
-        # self.label_7.setPixmap(QPixmap(u"imgs/logo.png"))
-
-        pixmap = QPixmap()
-        pixmap.loadFromData(binario(3))
-        self.label_7.setPixmap(pixmap)
-
+        self.label_7.setPixmap(QPixmap(u"logo.png"))
         self.label_7.setScaledContents(True)
         self.label_7.setAlignment(Qt.AlignCenter)
         self.btn_vai_firebird = QPushButton(self.frame_div_content_6)
         self.btn_vai_firebird.setObjectName(u"btn_vai_firebird")
-        self.btn_vai_firebird.setGeometry(QRect(130, 400, 171, 30))
+        self.btn_vai_firebird.setGeometry(QRect(120, 440, 171, 30))
         self.btn_vai_firebird.setMinimumSize(QSize(150, 30))
-        font5 = QFont()
-        font5.setFamilies([u"Segoe UI"])
-        font5.setPointSize(9)
-        self.btn_vai_firebird.setFont(font5)
+        font4 = QFont()
+        font4.setFamilies([u"Segoe UI"])
+        font4.setPointSize(9)
+        self.btn_vai_firebird.setFont(font4)
         self.btn_vai_firebird.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -657,29 +556,27 @@ class Ui_migr(object):
 "	background-color: rgb(35, 40, 49);\n"
 "	border: 2px solid rgb(43, 50, 61);\n"
 "}")
-        icon3 = QIcon()
-        icon3.addFile(u":/16x16/icons/16x16/cil-arrow-circle-right.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_vai_firebird.setIcon(icon3)
+        icon1 = QIcon()
+        icon1.addFile(u":/16x16/icons/16x16/cil-arrow-circle-right.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_vai_firebird.setIcon(icon1)
         self.labelBoxBlenderInstalation_12 = QLabel(self.frame_div_content_6)
         self.labelBoxBlenderInstalation_12.setObjectName(u"labelBoxBlenderInstalation_12")
         self.labelBoxBlenderInstalation_12.setGeometry(QRect(70, 170, 291, 31))
-        font6 = QFont()
-        font6.setFamilies([u"Segoe UI"])
-        font6.setPointSize(16)
-        font6.setBold(True)
-        self.labelBoxBlenderInstalation_12.setFont(font6)
+        font5 = QFont()
+        font5.setFamilies([u"Segoe UI"])
+        font5.setPointSize(16)
+        font5.setBold(True)
+        self.labelBoxBlenderInstalation_12.setFont(font5)
         self.labelBoxBlenderInstalation_12.setStyleSheet(u"")
-        self.barrinha = QTextBrowser(self.frame_div_content_6)
-        self.barrinha.setObjectName(u"barrinha")
-        self.barrinha.setGeometry(QRect(55, 320, 321, 50))
-        self.barrinha.setMinimumSize(QSize(0, 0))
-        self.barrinha.setMaximumSize(QSize(321, 50))
-        self.barrinha.setContextMenuPolicy(Qt.DefaultContextMenu)
-        self.barrinha.setStyleSheet(u"color: rgb(98, 103, 111);")
-        self.barrinha.setFrameShape(QFrame.StyledPanel)
-        self.barrinha.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
-        self.barrinha.setHorizontalScrollBarPolicy(Qt.ScrollBarAsNeeded)
-        self.barrinha.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContentsOnFirstShow)
+        self.textBrowser_4 = QTextBrowser(self.frame_div_content_6)
+        self.textBrowser_4.setObjectName(u"textBrowser_4")
+        self.textBrowser_4.setGeometry(QRect(55, 320, 321, 101))
+        self.textBrowser_4.setStyleSheet(u"color: rgb(98, 103, 111);")
+        self.textBrowser_4.setFrameShadow(QFrame.Raised)
+        self.textBrowser_4.setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
+        self.textBrowser_4.setHorizontalScrollBarPolicy(Qt.ScrollBarAsNeeded)
+        self.textBrowser_4.setSizeAdjustPolicy(QAbstractScrollArea.AdjustIgnored)
+        self.textBrowser_4.setOpenLinks(True)
         self.textBrowser_5 = QTextBrowser(self.frame_div_content_6)
         self.textBrowser_5.setObjectName(u"textBrowser_5")
         self.textBrowser_5.setGeometry(QRect(65, 250, 301, 51))
@@ -687,7 +584,7 @@ class Ui_migr(object):
         self.labelBoxBlenderInstalation_13 = QLabel(self.frame_div_content_6)
         self.labelBoxBlenderInstalation_13.setObjectName(u"labelBoxBlenderInstalation_13")
         self.labelBoxBlenderInstalation_13.setGeometry(QRect(140, 200, 161, 31))
-        self.labelBoxBlenderInstalation_13.setFont(font6)
+        self.labelBoxBlenderInstalation_13.setFont(font5)
         self.labelBoxBlenderInstalation_13.setStyleSheet(u"")
         self.paginas.addWidget(self.bemvindo)
         self.firebird = QWidget()
@@ -738,7 +635,7 @@ class Ui_migr(object):
 "color: rgb(98, 103, 111); ")
         self.labelVersion_3 = QLabel(self.frame_div_content_1)
         self.labelVersion_3.setObjectName(u"labelVersion_3")
-        self.labelVersion_3.setGeometry(QRect(20, 50, 281, 16))
+        self.labelVersion_3.setGeometry(QRect(20, 50, 271, 16))
         self.labelVersion_3.setStyleSheet(u"color: rgb(98, 103, 111);")
         self.labelVersion_3.setLineWidth(1)
         self.labelVersion_3.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
@@ -746,7 +643,7 @@ class Ui_migr(object):
         self.btn_procura_gdb.setObjectName(u"btn_procura_gdb")
         self.btn_procura_gdb.setGeometry(QRect(810, 10, 171, 30))
         self.btn_procura_gdb.setMinimumSize(QSize(150, 30))
-        self.btn_procura_gdb.setFont(font5)
+        self.btn_procura_gdb.setFont(font4)
         self.btn_procura_gdb.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -760,9 +657,9 @@ class Ui_migr(object):
 "	background-color: rgb(35, 40, 49);\n"
 "	border: 2px solid rgb(43, 50, 61);\n"
 "}")
-        icon4 = QIcon()
-        icon4.addFile(u":/16x16/icons/16x16/cil-folder-open.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_procura_gdb.setIcon(icon4)
+        icon2 = QIcon()
+        icon2.addFile(u":/16x16/icons/16x16/cil-folder-open.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_procura_gdb.setIcon(icon2)
         self.frame_title_wid_1 = QFrame(self.frame)
         self.frame_title_wid_1.setObjectName(u"frame_title_wid_1")
         self.frame_title_wid_1.setGeometry(QRect(50, 140, 991, 35))
@@ -773,13 +670,17 @@ class Ui_migr(object):
         self.labelBoxBlenderInstalation = QLabel(self.frame_title_wid_1)
         self.labelBoxBlenderInstalation.setObjectName(u"labelBoxBlenderInstalation")
         self.labelBoxBlenderInstalation.setGeometry(QRect(9, 9, 176, 17))
-        self.labelBoxBlenderInstalation.setFont(font1)
+        font6 = QFont()
+        font6.setFamilies([u"Segoe UI"])
+        font6.setPointSize(10)
+        font6.setBold(True)
+        self.labelBoxBlenderInstalation.setFont(font6)
         self.labelBoxBlenderInstalation.setStyleSheet(u"")
         self.btn_vai_postgres = QPushButton(self.frame)
         self.btn_vai_postgres.setObjectName(u"btn_vai_postgres")
         self.btn_vai_postgres.setGeometry(QRect(460, 290, 150, 30))
         self.btn_vai_postgres.setMinimumSize(QSize(150, 30))
-        self.btn_vai_postgres.setFont(font5)
+        self.btn_vai_postgres.setFont(font4)
         self.btn_vai_postgres.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -793,17 +694,13 @@ class Ui_migr(object):
 "	background-color: rgb(35, 40, 49);\n"
 "	border: 2px solid rgb(43, 50, 61);\n"
 "}")
-        icon5 = QIcon()
-        icon5.addFile(u":/16x16/icons/16x16/cil-chevron-circle-right-alt.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_vai_postgres.setIcon(icon5)
+        icon3 = QIcon()
+        icon3.addFile(u":/16x16/icons/16x16/cil-chevron-circle-right-alt.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_vai_postgres.setIcon(icon3)
         self.label_3 = QLabel(self.frame)
         self.label_3.setObjectName(u"label_3")
         self.label_3.setGeometry(QRect(60, 0, 151, 121))
-        # self.label_3.setPixmap(QPixmap(u"imgs/firebird.png"))
-
-        pixmap.loadFromData(binario(0))
-        self.label_3.setPixmap(pixmap)
-
+        self.label_3.setPixmap(QPixmap(u"firebird.png"))
         self.label_3.setScaledContents(True)
         self.labelBoxBlenderInstalation_2 = QLabel(self.frame)
         self.labelBoxBlenderInstalation_2.setObjectName(u"labelBoxBlenderInstalation_2")
@@ -817,7 +714,7 @@ class Ui_migr(object):
         self.labelBoxBlenderInstalation_3 = QLabel(self.frame)
         self.labelBoxBlenderInstalation_3.setObjectName(u"labelBoxBlenderInstalation_3")
         self.labelBoxBlenderInstalation_3.setGeometry(QRect(220, 50, 291, 17))
-        self.labelBoxBlenderInstalation_3.setFont(font1)
+        self.labelBoxBlenderInstalation_3.setFont(font6)
         self.labelBoxBlenderInstalation_3.setStyleSheet(u"")
         self.textBrowser_7 = QTextBrowser(self.frame)
         self.textBrowser_7.setObjectName(u"textBrowser_7")
@@ -870,7 +767,7 @@ class Ui_migr(object):
         self.btn_cria_base.setObjectName(u"btn_cria_base")
         self.btn_cria_base.setGeometry(QRect(810, 10, 171, 30))
         self.btn_cria_base.setMinimumSize(QSize(150, 30))
-        self.btn_cria_base.setFont(font5)
+        self.btn_cria_base.setFont(font4)
         self.btn_cria_base.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -884,9 +781,9 @@ class Ui_migr(object):
 "	background-color: rgb(35, 40, 49);\n"
 "	border: 2px solid rgb(43, 50, 61);\n"
 "}")
-        icon6 = QIcon()
-        icon6.addFile(u":/16x16/icons/16x16/cil-plus.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_cria_base.setIcon(icon6)
+        icon4 = QIcon()
+        icon4.addFile(u":/16x16/icons/16x16/cil-plus.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_cria_base.setIcon(icon4)
         self.frame_div_content_4 = QFrame(self.frame_div_content_3)
         self.frame_div_content_4.setObjectName(u"frame_div_content_4")
         self.frame_div_content_4.setGeometry(QRect(600, 50, 991, 61))
@@ -901,7 +798,7 @@ class Ui_migr(object):
         self.pushButton_10.setObjectName(u"pushButton_10")
         self.pushButton_10.setGeometry(QRect(630, 10, 171, 30))
         self.pushButton_10.setMinimumSize(QSize(150, 30))
-        self.pushButton_10.setFont(font5)
+        self.pushButton_10.setFont(font4)
         self.pushButton_10.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -915,12 +812,12 @@ class Ui_migr(object):
 "	background-color: rgb(35, 40, 49);\n"
 "	border: 2px solid rgb(43, 50, 61);\n"
 "}")
-        self.pushButton_10.setIcon(icon4)
+        self.pushButton_10.setIcon(icon2)
         self.pushButton_11 = QPushButton(self.frame_div_content_4)
         self.pushButton_11.setObjectName(u"pushButton_11")
         self.pushButton_11.setGeometry(QRect(810, 10, 171, 30))
         self.pushButton_11.setMinimumSize(QSize(150, 30))
-        self.pushButton_11.setFont(font5)
+        self.pushButton_11.setFont(font4)
         self.pushButton_11.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -934,35 +831,20 @@ class Ui_migr(object):
 "	background-color: rgb(35, 40, 49);\n"
 "	border: 2px solid rgb(43, 50, 61);\n"
 "}")
-        icon7 = QIcon()
-        icon7.addFile(u":/16x16/icons/16x16/cil-transfer.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_11.setIcon(icon7)
-        self.layoutWidget = QWidget(self.frame_div_content_3)
-        self.layoutWidget.setObjectName(u"layoutWidget")
-        self.layoutWidget.setGeometry(QRect(25, 52, 291, 18))
-        self.horizontalLayout_9 = QHBoxLayout(self.layoutWidget)
-        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
-        self.horizontalLayout_9.setContentsMargins(0, 0, 0, 0)
-        self.msg_banco_criado = QLabel(self.layoutWidget)
+        icon5 = QIcon()
+        icon5.addFile(u":/16x16/icons/16x16/cil-transfer.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_11.setIcon(icon5)
+        self.msg_banco_criado = QLabel(self.frame_div_content_3)
         self.msg_banco_criado.setObjectName(u"msg_banco_criado")
-        sizePolicy3.setHeightForWidth(self.msg_banco_criado.sizePolicy().hasHeightForWidth())
-        self.msg_banco_criado.setSizePolicy(sizePolicy3)
-        self.msg_banco_criado.setMinimumSize(QSize(261, 0))
+        self.msg_banco_criado.setGeometry(QRect(20, 50, 256, 16))
         self.msg_banco_criado.setStyleSheet(u"color: rgb(98, 103, 111);")
         self.msg_banco_criado.setLineWidth(1)
         self.msg_banco_criado.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
-
-        self.horizontalLayout_9.addWidget(self.msg_banco_criado)
-
-        self.icon_banco_criado = QLabel(self.layoutWidget)
+        self.icon_banco_criado = QLabel(self.frame_div_content_3)
         self.icon_banco_criado.setObjectName(u"icon_banco_criado")
-        self.icon_banco_criado.setContextMenuPolicy(Qt.DefaultContextMenu)
+        self.icon_banco_criado.setGeometry(QRect(280, 50, 21, 16))
         self.icon_banco_criado.setAutoFillBackground(False)
-        self.icon_banco_criado.setInputMethodHints(Qt.ImhHiddenText)
         self.icon_banco_criado.setPixmap(QPixmap(u":/16x16/icons/16x16/cil-check-circle.png"))
-
-        self.horizontalLayout_9.addWidget(self.icon_banco_criado)
-
         self.frame_title_wid_2 = QFrame(self.frame_2)
         self.frame_title_wid_2.setObjectName(u"frame_title_wid_2")
         self.frame_title_wid_2.setGeometry(QRect(0, 180, 991, 35))
@@ -973,18 +855,13 @@ class Ui_migr(object):
         self.labelBoxBlenderInstalation_6 = QLabel(self.frame_title_wid_2)
         self.labelBoxBlenderInstalation_6.setObjectName(u"labelBoxBlenderInstalation_6")
         self.labelBoxBlenderInstalation_6.setGeometry(QRect(9, 9, 211, 17))
-        self.labelBoxBlenderInstalation_6.setFont(font1)
+        self.labelBoxBlenderInstalation_6.setFont(font6)
         self.labelBoxBlenderInstalation_6.setStyleSheet(u"")
         self.label_4 = QLabel(self.frame_2)
         self.label_4.setObjectName(u"label_4")
         self.label_4.setGeometry(QRect(10, 40, 151, 121))
-        # self.label_4.setPixmap(QPixmap(u"imgs/postgresql.png"))
-
-        pixmap.loadFromData(binario(2))
-        self.label_4.setPixmap(pixmap)
-
+        self.label_4.setPixmap(QPixmap(u"postgresql.png"))
         self.label_4.setScaledContents(True)
-        self.label_4.setWordWrap(False)
         self.labelBoxBlenderInstalation_7 = QLabel(self.frame_2)
         self.labelBoxBlenderInstalation_7.setObjectName(u"labelBoxBlenderInstalation_7")
         self.labelBoxBlenderInstalation_7.setGeometry(QRect(170, 50, 481, 31))
@@ -993,55 +870,11 @@ class Ui_migr(object):
         self.labelBoxBlenderInstalation_8 = QLabel(self.frame_2)
         self.labelBoxBlenderInstalation_8.setObjectName(u"labelBoxBlenderInstalation_8")
         self.labelBoxBlenderInstalation_8.setGeometry(QRect(170, 90, 291, 17))
-        self.labelBoxBlenderInstalation_8.setFont(font1)
+        self.labelBoxBlenderInstalation_8.setFont(font6)
         self.labelBoxBlenderInstalation_8.setStyleSheet(u"")
-        self.textBrowser_3 = QTextBrowser(self.frame_2)
-        self.textBrowser_3.setObjectName(u"textBrowser_3")
-        self.textBrowser_3.setGeometry(QRect(170, 120, 471, 41))
-        self.textBrowser_3.setStyleSheet(u"color: rgb(98, 103, 111);")
-        self.btn_vai_confirmacao = QPushButton(self.frame_2)
-        self.btn_vai_confirmacao.setObjectName(u"btn_vai_confirmacao")
-        self.btn_vai_confirmacao.setGeometry(QRect(500, 450, 150, 30))
-        self.btn_vai_confirmacao.setMinimumSize(QSize(150, 30))
-        self.btn_vai_confirmacao.setFont(font5)
-        self.btn_vai_confirmacao.setStyleSheet(u"QPushButton {\n"
-"	border: 2px solid rgb(52, 59, 72);\n"
-"	border-radius: 5px;	\n"
-"	background-color: rgb(52, 59, 72);\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgb(57, 65, 80);\n"
-"	border: 2px solid rgb(61, 70, 86);\n"
-"}\n"
-"QPushButton:pressed {	\n"
-"	background-color: rgb(35, 40, 49);\n"
-"	border: 2px solid rgb(43, 50, 61);\n"
-"}")
-        self.btn_vai_confirmacao.setIcon(icon5)
-        self.btn_volta_firebird = QPushButton(self.frame_2)
-        self.btn_volta_firebird.setObjectName(u"btn_volta_firebird")
-        self.btn_volta_firebird.setGeometry(QRect(340, 450, 150, 30))
-        self.btn_volta_firebird.setMinimumSize(QSize(150, 30))
-        self.btn_volta_firebird.setFont(font5)
-        self.btn_volta_firebird.setStyleSheet(u"QPushButton {\n"
-"	border: 2px solid rgb(52, 59, 72);\n"
-"	border-radius: 5px;	\n"
-"	background-color: rgb(52, 59, 72);\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgb(57, 65, 80);\n"
-"	border: 2px solid rgb(61, 70, 86);\n"
-"}\n"
-"QPushButton:pressed {	\n"
-"	background-color: rgb(35, 40, 49);\n"
-"	border: 2px solid rgb(43, 50, 61);\n"
-"}")
-        icon8 = QIcon()
-        icon8.addFile(u":/16x16/icons/16x16/cil-chevron-circle-left-alt.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_volta_firebird.setIcon(icon8)
         self.frame_title_wid_4 = QFrame(self.frame_2)
         self.frame_title_wid_4.setObjectName(u"frame_title_wid_4")
-        self.frame_title_wid_4.setGeometry(QRect(1, 311, 989, 35))
+        self.frame_title_wid_4.setGeometry(QRect(0, 310, 991, 35))
         self.frame_title_wid_4.setMaximumSize(QSize(16777215, 35))
         self.frame_title_wid_4.setStyleSheet(u"background-color: rgb(39, 44, 54);")
         self.frame_title_wid_4.setFrameShape(QFrame.StyledPanel)
@@ -1049,7 +882,7 @@ class Ui_migr(object):
         self.labelBoxBlenderInstalation_11 = QLabel(self.frame_title_wid_4)
         self.labelBoxBlenderInstalation_11.setObjectName(u"labelBoxBlenderInstalation_11")
         self.labelBoxBlenderInstalation_11.setGeometry(QRect(9, 9, 211, 17))
-        self.labelBoxBlenderInstalation_11.setFont(font1)
+        self.labelBoxBlenderInstalation_11.setFont(font6)
         self.labelBoxBlenderInstalation_11.setStyleSheet(u"")
         self.frame_title_wid_5 = QFrame(self.frame_title_wid_4)
         self.frame_title_wid_5.setObjectName(u"frame_title_wid_5")
@@ -1060,7 +893,7 @@ class Ui_migr(object):
         self.frame_title_wid_5.setFrameShadow(QFrame.Raised)
         self.frame_div_content_5 = QFrame(self.frame_2)
         self.frame_div_content_5.setObjectName(u"frame_div_content_5")
-        self.frame_div_content_5.setGeometry(QRect(1, 352, 989, 78))
+        self.frame_div_content_5.setGeometry(QRect(0, 350, 991, 81))
         self.frame_div_content_5.setMinimumSize(QSize(0, 50))
         self.frame_div_content_5.setMaximumSize(QSize(16777215, 110))
         self.frame_div_content_5.setStyleSheet(u"background-color: rgb(41, 45, 56);\n"
@@ -1090,7 +923,7 @@ class Ui_migr(object):
         self.btn_busca_dump.setObjectName(u"btn_busca_dump")
         self.btn_busca_dump.setGeometry(QRect(630, 10, 171, 30))
         self.btn_busca_dump.setMinimumSize(QSize(150, 30))
-        self.btn_busca_dump.setFont(font5)
+        self.btn_busca_dump.setFont(font4)
         self.btn_busca_dump.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -1104,12 +937,13 @@ class Ui_migr(object):
 "	background-color: rgb(35, 40, 49);\n"
 "	border: 2px solid rgb(43, 50, 61);\n"
 "}")
-        self.btn_busca_dump.setIcon(icon4)
+        self.btn_busca_dump.setIcon(icon2)
         self.btn_zera_base = QPushButton(self.frame_div_content_5)
         self.btn_zera_base.setObjectName(u"btn_zera_base")
         self.btn_zera_base.setGeometry(QRect(810, 10, 171, 30))
         self.btn_zera_base.setMinimumSize(QSize(150, 30))
-        self.btn_zera_base.setFont(font5)
+        self.btn_zera_base.setFont(font4)
+        self.btn_zera_base.setCursor(QCursor(Qt.ArrowCursor))
         self.btn_zera_base.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -1123,20 +957,64 @@ class Ui_migr(object):
 "	background-color: rgb(35, 40, 49);\n"
 "	border: 2px solid rgb(43, 50, 61);\n"
 "}")
-        icon9 = QIcon()
-        icon9.addFile(u":/16x16/icons/16x16/cil-loop-circular.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_zera_base.setIcon(icon9)
+        icon6 = QIcon()
+        icon6.addFile(u":/16x16/icons/16x16/cil-loop-circular.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_zera_base.setIcon(icon6)
         self.msg_base_importada = QLabel(self.frame_div_content_5)
         self.msg_base_importada.setObjectName(u"msg_base_importada")
-        self.msg_base_importada.setGeometry(QRect(21, 51, 189, 16))
+        self.msg_base_importada.setGeometry(QRect(20, 50, 201, 16))
         self.msg_base_importada.setStyleSheet(u"color: rgb(98, 103, 111);")
         self.msg_base_importada.setLineWidth(1)
         self.msg_base_importada.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.icon_base_importada = QLabel(self.frame_div_content_5)
         self.icon_base_importada.setObjectName(u"icon_base_importada")
-        self.icon_base_importada.setGeometry(QRect(220, 51, 16, 16))
+        self.icon_base_importada.setGeometry(QRect(215, 50, 21, 16))
         self.icon_base_importada.setAutoFillBackground(False)
         self.icon_base_importada.setPixmap(QPixmap(u":/16x16/icons/16x16/cil-check-circle.png"))
+        self.textBrowser_3 = QTextBrowser(self.frame_2)
+        self.textBrowser_3.setObjectName(u"textBrowser_3")
+        self.textBrowser_3.setGeometry(QRect(170, 120, 471, 41))
+        self.textBrowser_3.setStyleSheet(u"color: rgb(98, 103, 111);")
+        self.btn_vai_confirmacao = QPushButton(self.frame_2)
+        self.btn_vai_confirmacao.setObjectName(u"btn_vai_confirmacao")
+        self.btn_vai_confirmacao.setGeometry(QRect(500, 450, 150, 30))
+        self.btn_vai_confirmacao.setMinimumSize(QSize(150, 30))
+        self.btn_vai_confirmacao.setFont(font4)
+        self.btn_vai_confirmacao.setStyleSheet(u"QPushButton {\n"
+"	border: 2px solid rgb(52, 59, 72);\n"
+"	border-radius: 5px;	\n"
+"	background-color: rgb(52, 59, 72);\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color: rgb(57, 65, 80);\n"
+"	border: 2px solid rgb(61, 70, 86);\n"
+"}\n"
+"QPushButton:pressed {	\n"
+"	background-color: rgb(35, 40, 49);\n"
+"	border: 2px solid rgb(43, 50, 61);\n"
+"}")
+        self.btn_vai_confirmacao.setIcon(icon3)
+        self.btn_volta_firebird = QPushButton(self.frame_2)
+        self.btn_volta_firebird.setObjectName(u"btn_volta_firebird")
+        self.btn_volta_firebird.setGeometry(QRect(340, 450, 150, 30))
+        self.btn_volta_firebird.setMinimumSize(QSize(150, 30))
+        self.btn_volta_firebird.setFont(font4)
+        self.btn_volta_firebird.setStyleSheet(u"QPushButton {\n"
+"	border: 2px solid rgb(52, 59, 72);\n"
+"	border-radius: 5px;	\n"
+"	background-color: rgb(52, 59, 72);\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color: rgb(57, 65, 80);\n"
+"	border: 2px solid rgb(61, 70, 86);\n"
+"}\n"
+"QPushButton:pressed {	\n"
+"	background-color: rgb(35, 40, 49);\n"
+"	border: 2px solid rgb(43, 50, 61);\n"
+"}")
+        icon7 = QIcon()
+        icon7.addFile(u":/16x16/icons/16x16/cil-chevron-circle-left-alt.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_volta_firebird.setIcon(icon7)
         self.paginas.addWidget(self.postgresql)
         self.confirmacao = QWidget()
         self.confirmacao.setObjectName(u"confirmacao")
@@ -1170,7 +1048,7 @@ class Ui_migr(object):
         self.labelBoxBlenderInstalation_14 = QLabel(self.frame_title_wid_3)
         self.labelBoxBlenderInstalation_14.setObjectName(u"labelBoxBlenderInstalation_14")
         self.labelBoxBlenderInstalation_14.setGeometry(QRect(9, 9, 211, 17))
-        self.labelBoxBlenderInstalation_14.setFont(font1)
+        self.labelBoxBlenderInstalation_14.setFont(font6)
         self.labelBoxBlenderInstalation_14.setStyleSheet(u"")
         self.labelBoxBlenderInstalation_15 = QLabel(self.frame_4)
         self.labelBoxBlenderInstalation_15.setObjectName(u"labelBoxBlenderInstalation_15")
@@ -1180,7 +1058,7 @@ class Ui_migr(object):
         self.labelBoxBlenderInstalation_16 = QLabel(self.frame_4)
         self.labelBoxBlenderInstalation_16.setObjectName(u"labelBoxBlenderInstalation_16")
         self.labelBoxBlenderInstalation_16.setGeometry(QRect(170, 90, 291, 17))
-        self.labelBoxBlenderInstalation_16.setFont(font1)
+        self.labelBoxBlenderInstalation_16.setFont(font6)
         self.labelBoxBlenderInstalation_16.setStyleSheet(u"")
         self.textBrowser_6 = QTextBrowser(self.frame_4)
         self.textBrowser_6.setObjectName(u"textBrowser_6")
@@ -1188,9 +1066,9 @@ class Ui_migr(object):
         self.textBrowser_6.setStyleSheet(u"color: rgb(98, 103, 111);")
         self.btn_processar = QPushButton(self.frame_4)
         self.btn_processar.setObjectName(u"btn_processar")
-        self.btn_processar.setGeometry(QRect(480, 390, 150, 30))
+        self.btn_processar.setGeometry(QRect(510, 390, 150, 30))
         self.btn_processar.setMinimumSize(QSize(150, 30))
-        self.btn_processar.setFont(font5)
+        self.btn_processar.setFont(font4)
         self.btn_processar.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -1204,22 +1082,17 @@ class Ui_migr(object):
 "	background-color: rgb(35, 40, 49);\n"
 "	border: 2px solid rgb(43, 50, 61);\n"
 "}")
-        self.btn_processar.setIcon(icon7)
+        self.btn_processar.setIcon(icon5)
         self.label_8 = QLabel(self.frame_4)
         self.label_8.setObjectName(u"label_8")
         self.label_8.setGeometry(QRect(10, 40, 151, 120))
-        # self.label_8.setPixmap(QPixmap(u"imgs/check.png"))
-
-
-        pixmap.loadFromData(binario(1))
-        self.label_8.setPixmap(pixmap)
-
+        self.label_8.setPixmap(QPixmap(u"check.png"))
         self.label_8.setScaledContents(True)
         self.btn_volta_postgres = QPushButton(self.frame_4)
         self.btn_volta_postgres.setObjectName(u"btn_volta_postgres")
-        self.btn_volta_postgres.setGeometry(QRect(320, 390, 150, 30))
+        self.btn_volta_postgres.setGeometry(QRect(340, 390, 150, 30))
         self.btn_volta_postgres.setMinimumSize(QSize(150, 30))
-        self.btn_volta_postgres.setFont(font5)
+        self.btn_volta_postgres.setFont(font4)
         self.btn_volta_postgres.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -1233,24 +1106,46 @@ class Ui_migr(object):
 "	background-color: rgb(35, 40, 49);\n"
 "	border: 2px solid rgb(43, 50, 61);\n"
 "}")
-        self.btn_volta_postgres.setIcon(icon8)
+        self.btn_volta_postgres.setIcon(icon7)
         self.progressBar = QProgressBar(self.frame_4)
         self.progressBar.setObjectName(u"progressBar")
         self.progressBar.setGeometry(QRect(0, 440, 991, 8))
         self.progressBar.setStyleSheet(u"background-color: rgb(41, 45, 56);\n"
 "border-radius: 5px;\n"
 "")
-        self.progressBar.setValue(24)
+        self.progressBar.setValue(0)
         self.progressBar.setTextVisible(False)
         self.paginas.addWidget(self.confirmacao)
         self.guarda = QWidget()
         self.guarda.setObjectName(u"guarda")
-        self.btn_guarda_dump = QPushButton(self.guarda)
-        self.btn_guarda_dump.setObjectName(u"btn_guarda_dump")
-        self.btn_guarda_dump.setGeometry(QRect(470, 300, 150, 30))
-        self.btn_guarda_dump.setMinimumSize(QSize(150, 30))
-        self.btn_guarda_dump.setFont(font5)
-        self.btn_guarda_dump.setStyleSheet(u"QPushButton {\n"
+        self.frame_9 = QFrame(self.guarda)
+        self.frame_9.setObjectName(u"frame_9")
+        self.frame_9.setGeometry(QRect(10, 10, 1076, 580))
+        self.frame_9.setStyleSheet(u"border-radius: 5px;")
+        self.frame_9.setFrameShape(QFrame.StyledPanel)
+        self.frame_9.setFrameShadow(QFrame.Raised)
+        self.frame_div_content_15 = QFrame(self.frame_9)
+        self.frame_div_content_15.setObjectName(u"frame_div_content_15")
+        self.frame_div_content_15.setGeometry(QRect(50, 180, 991, 81))
+        self.frame_div_content_15.setMinimumSize(QSize(0, 50))
+        self.frame_div_content_15.setMaximumSize(QSize(16777215, 110))
+        self.frame_div_content_15.setStyleSheet(u"background-color: rgb(41, 45, 56);\n"
+"border-radius: 5px;\n"
+"")
+        self.frame_div_content_15.setFrameShape(QFrame.NoFrame)
+        self.frame_div_content_15.setFrameShadow(QFrame.Raised)
+        self.labelVersion_9 = QLabel(self.frame_div_content_15)
+        self.labelVersion_9.setObjectName(u"labelVersion_9")
+        self.labelVersion_9.setGeometry(QRect(20, 50, 271, 16))
+        self.labelVersion_9.setStyleSheet(u"color: rgb(98, 103, 111);")
+        self.labelVersion_9.setLineWidth(1)
+        self.labelVersion_9.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.btn_procura_local = QPushButton(self.frame_div_content_15)
+        self.btn_procura_local.setObjectName(u"btn_procura_local")
+        self.btn_procura_local.setGeometry(QRect(810, 10, 171, 30))
+        self.btn_procura_local.setMinimumSize(QSize(150, 30))
+        self.btn_procura_local.setFont(font4)
+        self.btn_procura_local.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
 "	background-color: rgb(52, 59, 72);\n"
@@ -1263,30 +1158,8 @@ class Ui_migr(object):
 "	background-color: rgb(35, 40, 49);\n"
 "	border: 2px solid rgb(43, 50, 61);\n"
 "}")
-        self.btn_guarda_dump.setIcon(icon5)
-        self.frame_title_wid_6 = QFrame(self.guarda)
-        self.frame_title_wid_6.setObjectName(u"frame_title_wid_6")
-        self.frame_title_wid_6.setGeometry(QRect(60, 150, 991, 35))
-        self.frame_title_wid_6.setMaximumSize(QSize(16777215, 35))
-        self.frame_title_wid_6.setStyleSheet(u"background-color: rgb(39, 44, 54);")
-        self.frame_title_wid_6.setFrameShape(QFrame.StyledPanel)
-        self.frame_title_wid_6.setFrameShadow(QFrame.Raised)
-        self.labelBoxBlenderInstalation_5 = QLabel(self.frame_title_wid_6)
-        self.labelBoxBlenderInstalation_5.setObjectName(u"labelBoxBlenderInstalation_5")
-        self.labelBoxBlenderInstalation_5.setGeometry(QRect(9, 9, 201, 17))
-        self.labelBoxBlenderInstalation_5.setFont(font1)
-        self.labelBoxBlenderInstalation_5.setStyleSheet(u"")
-        self.frame_div_content_2 = QFrame(self.guarda)
-        self.frame_div_content_2.setObjectName(u"frame_div_content_2")
-        self.frame_div_content_2.setGeometry(QRect(60, 190, 991, 81))
-        self.frame_div_content_2.setMinimumSize(QSize(0, 50))
-        self.frame_div_content_2.setMaximumSize(QSize(16777215, 110))
-        self.frame_div_content_2.setStyleSheet(u"background-color: rgb(41, 45, 56);\n"
-"border-radius: 5px;\n"
-"")
-        self.frame_div_content_2.setFrameShape(QFrame.NoFrame)
-        self.frame_div_content_2.setFrameShadow(QFrame.Raised)
-        self.caminho_base_importada = QLineEdit(self.frame_div_content_2)
+        self.btn_procura_local.setIcon(icon2)
+        self.caminho_base_importada = QLineEdit(self.frame_div_content_15)
         self.caminho_base_importada.setObjectName(u"caminho_base_importada")
         self.caminho_base_importada.setGeometry(QRect(10, 10, 791, 30))
         self.caminho_base_importada.setMinimumSize(QSize(0, 30))
@@ -1304,18 +1177,24 @@ class Ui_migr(object):
 "}\n"
 "\n"
 "color: rgb(98, 103, 111); ")
-        self.labelVersion_5 = QLabel(self.frame_div_content_2)
-        self.labelVersion_5.setObjectName(u"labelVersion_5")
-        self.labelVersion_5.setGeometry(QRect(20, 50, 281, 16))
-        self.labelVersion_5.setStyleSheet(u"color: rgb(98, 103, 111);")
-        self.labelVersion_5.setLineWidth(1)
-        self.labelVersion_5.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
-        self.btn_procura_local = QPushButton(self.frame_div_content_2)
-        self.btn_procura_local.setObjectName(u"btn_procura_local")
-        self.btn_procura_local.setGeometry(QRect(810, 10, 171, 30))
-        self.btn_procura_local.setMinimumSize(QSize(150, 30))
-        self.btn_procura_local.setFont(font5)
-        self.btn_procura_local.setStyleSheet(u"QPushButton {\n"
+        self.frame_title_wid_11 = QFrame(self.frame_9)
+        self.frame_title_wid_11.setObjectName(u"frame_title_wid_11")
+        self.frame_title_wid_11.setGeometry(QRect(50, 140, 991, 35))
+        self.frame_title_wid_11.setMaximumSize(QSize(16777215, 35))
+        self.frame_title_wid_11.setStyleSheet(u"background-color: rgb(39, 44, 54);")
+        self.frame_title_wid_11.setFrameShape(QFrame.StyledPanel)
+        self.frame_title_wid_11.setFrameShadow(QFrame.Raised)
+        self.labelBoxBlenderInstalation_29 = QLabel(self.frame_title_wid_11)
+        self.labelBoxBlenderInstalation_29.setObjectName(u"labelBoxBlenderInstalation_29")
+        self.labelBoxBlenderInstalation_29.setGeometry(QRect(9, 9, 291, 16))
+        self.labelBoxBlenderInstalation_29.setFont(font6)
+        self.labelBoxBlenderInstalation_29.setStyleSheet(u"")
+        self.btn_guarda_dump = QPushButton(self.frame_9)
+        self.btn_guarda_dump.setObjectName(u"btn_guarda_dump")
+        self.btn_guarda_dump.setGeometry(QRect(470, 290, 150, 30))
+        self.btn_guarda_dump.setMinimumSize(QSize(150, 30))
+        self.btn_guarda_dump.setFont(font4)
+        self.btn_guarda_dump.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
 "	background-color: rgb(52, 59, 72);\n"
@@ -1328,7 +1207,7 @@ class Ui_migr(object):
 "	background-color: rgb(35, 40, 49);\n"
 "	border: 2px solid rgb(43, 50, 61);\n"
 "}")
-        self.btn_procura_local.setIcon(icon4)
+        self.btn_guarda_dump.setIcon(icon3)
         self.paginas.addWidget(self.guarda)
         self.conclusao = QWidget()
         self.conclusao.setObjectName(u"conclusao")
@@ -1345,20 +1224,16 @@ class Ui_migr(object):
         self.label_9 = QLabel(self.frame_div_content_8)
         self.label_9.setObjectName(u"label_9")
         self.label_9.setGeometry(QRect(90, 70, 231, 61))
-        self.label_9.setFont(font4)
+        self.label_9.setFont(font3)
         self.label_9.setStyleSheet(u"")
-        # self.label_9.setPixmap(QPixmap(u"imgs/logo.png"))
-
-        pixmap.loadFromData(binario(3))
-        self.label_9.setPixmap(pixmap)
-
+        self.label_9.setPixmap(QPixmap(u"logo.png"))
         self.label_9.setScaledContents(True)
         self.label_9.setAlignment(Qt.AlignCenter)
         self.btn_concluir = QPushButton(self.frame_div_content_8)
         self.btn_concluir.setObjectName(u"btn_concluir")
         self.btn_concluir.setGeometry(QRect(130, 340, 171, 30))
         self.btn_concluir.setMinimumSize(QSize(150, 30))
-        self.btn_concluir.setFont(font5)
+        self.btn_concluir.setFont(font4)
         self.btn_concluir.setStyleSheet(u"QPushButton {\n"
 "	border: 2px solid rgb(52, 59, 72);\n"
 "	border-radius: 5px;	\n"
@@ -1372,13 +1247,13 @@ class Ui_migr(object):
 "	background-color: rgb(35, 40, 49);\n"
 "	border: 2px solid rgb(43, 50, 61);\n"
 "}")
-        icon10 = QIcon()
-        icon10.addFile(u":/16x16/icons/16x16/cil-check-circle.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_concluir.setIcon(icon10)
+        icon8 = QIcon()
+        icon8.addFile(u":/16x16/icons/16x16/cil-check-circle.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_concluir.setIcon(icon8)
         self.labelBoxBlenderInstalation_17 = QLabel(self.frame_div_content_8)
         self.labelBoxBlenderInstalation_17.setObjectName(u"labelBoxBlenderInstalation_17")
         self.labelBoxBlenderInstalation_17.setGeometry(QRect(100, 170, 231, 31))
-        self.labelBoxBlenderInstalation_17.setFont(font6)
+        self.labelBoxBlenderInstalation_17.setFont(font5)
         self.labelBoxBlenderInstalation_17.setStyleSheet(u"")
         self.textBrowser_9 = QTextBrowser(self.frame_div_content_8)
         self.textBrowser_9.setObjectName(u"textBrowser_9")
@@ -1387,7 +1262,7 @@ class Ui_migr(object):
         self.labelBoxBlenderInstalation_18 = QLabel(self.frame_div_content_8)
         self.labelBoxBlenderInstalation_18.setObjectName(u"labelBoxBlenderInstalation_18")
         self.labelBoxBlenderInstalation_18.setGeometry(QRect(150, 200, 131, 31))
-        self.labelBoxBlenderInstalation_18.setFont(font6)
+        self.labelBoxBlenderInstalation_18.setFont(font5)
         self.labelBoxBlenderInstalation_18.setStyleSheet(u"")
         self.paginas.addWidget(self.conclusao)
 
@@ -1417,7 +1292,7 @@ class Ui_migr(object):
         self.horizontalLayout_7.setContentsMargins(10, 0, 10, 0)
         self.label_credits = QLabel(self.frame_label_bottom)
         self.label_credits.setObjectName(u"label_credits")
-        self.label_credits.setFont(font2)
+        self.label_credits.setFont(font1)
         self.label_credits.setStyleSheet(u"color: rgb(98, 103, 111);")
 
         self.horizontalLayout_7.addWidget(self.label_credits)
@@ -1425,7 +1300,7 @@ class Ui_migr(object):
         self.label_version = QLabel(self.frame_label_bottom)
         self.label_version.setObjectName(u"label_version")
         self.label_version.setMaximumSize(QSize(100, 16777215))
-        self.label_version.setFont(font2)
+        self.label_version.setFont(font1)
         self.label_version.setStyleSheet(u"color: rgb(98, 103, 111);")
         self.label_version.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
@@ -1460,8 +1335,6 @@ class Ui_migr(object):
         self.horizontalLayout.addWidget(self.frame_main)
 
         migr.setCentralWidget(self.centralwidget)
-        QWidget.setTabOrder(self.btn_minimize, self.btn_maximize_restore)
-        QWidget.setTabOrder(self.btn_maximize_restore, self.btn_close)
 
         self.retranslateUi(migr)
 
@@ -1473,31 +1346,18 @@ class Ui_migr(object):
 
     def retranslateUi(self, migr):
         migr.setWindowTitle(QCoreApplication.translate("migr", u"MainWindow", None))
-        self.label_title_bar_top.setText(QCoreApplication.translate("migr", u"ASSISTENTE DE MIGRA\u00c7\u00c3O DE BANCO DE DADOS", None))
-#if QT_CONFIG(tooltip)
-        self.btn_minimize.setToolTip(QCoreApplication.translate("migr", u"Minimize", None))
-#endif // QT_CONFIG(tooltip)
-        self.btn_minimize.setText("")
-#if QT_CONFIG(tooltip)
-        self.btn_maximize_restore.setToolTip(QCoreApplication.translate("migr", u"Maximize", None))
-#endif // QT_CONFIG(tooltip)
-        self.btn_maximize_restore.setText("")
-#if QT_CONFIG(tooltip)
-        self.btn_close.setToolTip(QCoreApplication.translate("migr", u"Close", None))
-#endif // QT_CONFIG(tooltip)
-        self.btn_close.setText("")
         self.label_top_info_1.setText("")
         self.label_top_info_2.setText("")
         self.label_7.setText("")
         self.btn_vai_firebird.setText(QCoreApplication.translate("migr", u"Avan\u00e7ar", None))
         self.labelBoxBlenderInstalation_12.setText(QCoreApplication.translate("migr", u"BEM-VINDO AO ASSISTENTE", None))
-        self.barrinha.setHtml(QCoreApplication.translate("migr", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+        self.textBrowser_4.setHtml(QCoreApplication.translate("migr", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Dados importados no Banco de Dados de Destino:</p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;\"><br /></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">Centro de Custo, Departamento, Ramais, Contas, Troncos, Grupos de Troncos, Filtro de Liga\u00e7\u00f5es, Agenda, Planos, Oper"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">Departamento, Centro de Custo, Ramais, Contas, Troncos, Grupos de Troncos, Filtro de Liga\u00e7\u00f5es, Agenda, Planos, Oper"
                         "adoras, Hor\u00e1rios, Par\u00e2metros, Operador, Acessos, Identificadores de Entrada e Opcionais.</span></p></body></html>", None))
         self.textBrowser_5.setHtml(QCoreApplication.translate("migr", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
@@ -1525,12 +1385,19 @@ class Ui_migr(object):
         self.btn_cria_base.setText(QCoreApplication.translate("migr", u"Criar Base de Dados", None))
         self.pushButton_10.setText(QCoreApplication.translate("migr", u"Abrir Local do Arquivo", None))
         self.pushButton_11.setText(QCoreApplication.translate("migr", u"Processar", None))
-        self.msg_banco_criado.setText(QCoreApplication.translate("migr", u"Base de Dados SOMASOLUCOES criada com sucesso!    ", None))
+        self.msg_banco_criado.setText(QCoreApplication.translate("migr", u"Base de Dados SOMASOLUCOES criada com sucesso!", None))
         self.icon_banco_criado.setText("")
         self.labelBoxBlenderInstalation_6.setText(QCoreApplication.translate("migr", u"CRIAR BASE DE DADOS", None))
         self.label_4.setText("")
         self.labelBoxBlenderInstalation_7.setText(QCoreApplication.translate("migr", u"ASSISTENTE DE MIGRA\u00c7\u00c3O DE BANCO DE DADOS", None))
         self.labelBoxBlenderInstalation_8.setText(QCoreApplication.translate("migr", u"CONEX\u00c3O NO BANCO DE DADOS DE DESTINO", None))
+        self.labelBoxBlenderInstalation_11.setText(QCoreApplication.translate("migr", u"IMPORTAR BASE ZERADA", None))
+        self.caminho_base_zerada.setText("")
+        self.caminho_base_zerada.setPlaceholderText(QCoreApplication.translate("migr", u"Caminho da Base de Dados", None))
+        self.btn_busca_dump.setText(QCoreApplication.translate("migr", u"Abrir Local do Arquivo", None))
+        self.btn_zera_base.setText(QCoreApplication.translate("migr", u"Importar", None))
+        self.msg_base_importada.setText(QCoreApplication.translate("migr", u"Base de Dados importada com sucesso!", None))
+        self.icon_base_importada.setText("")
         self.textBrowser_3.setHtml(QCoreApplication.translate("migr", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -1539,22 +1406,15 @@ class Ui_migr(object):
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Em seguida, importe a base zerada do SOMA Tarifador.</p></body></html>", None))
         self.btn_vai_confirmacao.setText(QCoreApplication.translate("migr", u"Avan\u00e7ar", None))
         self.btn_volta_firebird.setText(QCoreApplication.translate("migr", u"Anterior", None))
-        self.labelBoxBlenderInstalation_11.setText(QCoreApplication.translate("migr", u"IMPORTAR BASE ZERADA", None))
-        self.caminho_base_zerada.setText("")
-        self.caminho_base_zerada.setPlaceholderText(QCoreApplication.translate("migr", u"Caminho da Base de Dados", None))
-        self.btn_busca_dump.setText(QCoreApplication.translate("migr", u"Abrir Local do Arquivo", None))
-        self.btn_zera_base.setText(QCoreApplication.translate("migr", u"Importar", None))
-        self.msg_base_importada.setText(QCoreApplication.translate("migr", u"Base de Dados importada com sucesso!", None))
-        self.icon_base_importada.setText("")
         self.confirmar.setHtml(QCoreApplication.translate("migr", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">BANCO DE DADOS DE ORIGEM (Firebird)</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Diret\u00f3rio de Origem: C:\\Program Files (x86)\\Tarifador\\Dados\\DADOS.GDB</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><"
-                        "br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Diret\u00f3rio de Origem: C:\\\\Program Files (x86)\\\\Tarifador\\\\Dados\\\\DADOS.GDB</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:"
+                        "0px;\"><br /></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">-------------------------------------------------------------</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">BANCO DE DADOS DE DESTINO (PostgreSQL)</p>\n"
@@ -1571,12 +1431,12 @@ class Ui_migr(object):
         self.btn_processar.setText(QCoreApplication.translate("migr", u"Processar", None))
         self.label_8.setText("")
         self.btn_volta_postgres.setText(QCoreApplication.translate("migr", u"Anterior", None))
-        self.btn_guarda_dump.setText(QCoreApplication.translate("migr", u"Avan\u00e7ar", None))
-        self.labelBoxBlenderInstalation_5.setText(QCoreApplication.translate("migr", u"DESTINO DA BASE IMPORTADA", None))
+        self.labelVersion_9.setText(QCoreApplication.translate("migr", u"Ex: C:/Users/Usuario/Desktop", None))
+        self.btn_procura_local.setText(QCoreApplication.translate("migr", u"Abrir Local do Arquivo", None))
         self.caminho_base_importada.setText("")
-        self.caminho_base_importada.setPlaceholderText(QCoreApplication.translate("migr", u"Destino do dump da nova base", None))
-        self.labelVersion_5.setText(QCoreApplication.translate("migr", u"Ex: C:/Users/Usuario/Desktop", None))
-        self.btn_procura_local.setText(QCoreApplication.translate("migr", u"Selecionar Local", None))
+        self.caminho_base_importada.setPlaceholderText(QCoreApplication.translate("migr", u"Caminho de destino do banco de dados convertido", None))
+        self.labelBoxBlenderInstalation_29.setText(QCoreApplication.translate("migr", u"DESTINO DO BANCO DE DADOS CONVERTIDO", None))
+        self.btn_guarda_dump.setText(QCoreApplication.translate("migr", u"Avan\u00e7ar", None))
         self.label_9.setText("")
         self.btn_concluir.setText(QCoreApplication.translate("migr", u"Concluir", None))
         self.labelBoxBlenderInstalation_17.setText(QCoreApplication.translate("migr", u"MIGRA\u00c7\u00c3O DE DADOS", None))

@@ -14,7 +14,7 @@ class Tabelas:
         self.fb = self.conexao_fb.cursor()
         self.pg = self.conexao_pg.cursor()
 
-    
+
     def alter_sequence(self, sequencia, inicio):
         self.pg.execute(f"SELECT setval('{sequencia}', {inicio});")
         self.conexao_pg.commit()
@@ -58,70 +58,23 @@ class Tabelas:
         if (lista[indice] != None):
             lista[indice] = lista[indice].strftime("%Y-%m-%d %H:%M:%S")
 
-
+    
     def cadpar(self):
-        cur = self.fb.execute("select * from cadpar")
+        cur = self.fb.execute("SELECT nreg, partxs, partxicm, parseg, parprcimp, partarminnac, partxacre, partarminint, partarint, parminacres, parposramal, parnumramal, parposdata, parnumdata, parposhora, parnumhora, parposdurhor, parnumdurhor, parposdurmin, parnumdurmin, parposdurseg, parnumdurseg, parposnr, parnumnr, parposdest, parnumdest, partippabx, parcommport, parstopbits, parbauderate, pardatabits, parparidade, parxonent, parxonsai, partotcarac, partempomanha, partempotarde, partemponoite, partempomad, parcodarea, parultreg, partel0900min, horcelini, horcelfim, horcelini2, horcelifim2, desccel, celprcarea, celprcest, cor, parlic, curva_a, curva_b, curva_c, parmindest, sublinha_relatorio, vl_cobrar, localidade, uf_localidade, receber_ligacoes, valor_ligacoes_recebidas, parpos_identrada, parnum_identrada, parposdurmin_e, parnumdurmin_e, parposdurhor_e, parnumdurhor_e, parposdurseg_e, parnumdurseg_e, parposhora_e, parnumhora_e, parposdata_e, parnumdata_e, parposramal_e, parnumramal_e, parposnr_e, parnumnr_e, ao_codigo_area, ao_hrfim, ao_datawindows, operadora_padrao, vigencia, ao_vigencia, modelo, parpostronco, parnumtronco, parpostronco_e, parnumtronco_e, parposcodigo, parnumcodigo, ao_rotacusto, ao_segduracao, ao_senha, ao_dt_americano, ao_dt_s_formato, ao_hr_s_formato, ao_rotacusto_tronco, ao_scheduler, reldia, periodicidade, ao_recebida, dt_reldia, fromadress, fromname, subject, smtp, userid, parpospmam_e, parnumpmam_e, parpospmam, parnumpmam, ao_valor_cheio, local_mesa_pc, ao_autenticacao, senha_autenticacao, prioridade, ao_confirmacao, usuario_info, forma_scheduler, dt_reldia_n, email_info, email, ao_txt_tpdados, ao_txt_tptipo, ao_txt_exp, ao_txt_dir, ao_txt_file, ao_data_det, ao_data_det_e, parpos_data_dia, parnum_data_dia, parpos_data_dia_e, parnum_data_dia_e, parpos_data_mes, parnum_data_mes, parpos_data_mes_e, parnum_data_mes_e, parpos_data_ano, parnum_data_ano, parpos_data_ano_e, parnum_data_ano_e, ao_fator_convert, ao_tipo_convert, vl_tipo_convert, tcp_host, tcp_porta, tcp_tipo, ao_utiliza_tempo_espera, parposdurmin_e2, parnumdurmin_e2, parposdurseg_e2, parnumdurseg_e2, versao_bd, ao_portamanual, ao_menu, ao_rel_particular, ao_formato_relatorio, ao_tarifa_ligacao, ao_atualizacao, email_responsavel, ao_multi_site, intervalo_alternancia, host_pabx, porta_pabx, senha_proxy, porta_proxy, usuario_proxy, servidor_proxy, ao_autenticacao_proxy, porta_internet, ao_utiliza_proxy, ao_importa_sem_telefone, tolerancia, ao_mascara_telefone, celprcreg, parsite, paritem, atualiza_status_ramais, parposadicional, parnumadicional, parposadicional_e, parnumadicional_e, usuario_pabx, senha_usuario_pabx, utiliza_login_pabx, parfusohorario, suporte_soma, qtd_bilhete_tarifacao, contasagenda, ao_executa_assistente, ao_gera_arq_separador, separador_arq, database_mysql, ao_txt_exp_entrante, dsmysql, ao_processador, parreiniciatcp, ramaisagenda, cadin_smtp, cadin_nome_email, cadin_usuario, cadin_senha, ao_requer_autenticacao, ao_txt_exp_numerico, ao_exp_ddd_separado, ao_taxa, tipo_taxa, paracrescimo, paracrescimomin, cadin_porta, ao_txt_exp_ramal, pardatpesq, habilita_thread, parhrpesq, ao_cadram_automatico, ao_trata_extensao FROM cadpar")
         parametros = cur.fetchall()[0]
 
-        colunas_banco = [desc[0].lower() for desc in cur.description]
-        
-        if(len(colunas_banco) > 217):
-            colunas_banco = colunas_banco[0:217]
-            parametros = parametros[0:217]
+        parametros = list(parametros)
 
-        self.inverte_coluna(colunas_banco, 'parfusohorario', 'ao_executa_assistente')
-
-        self.inverte_coluna(colunas_banco, 'suporte_soma', 'ao_executa_assistente')
-
-        self.inverte_coluna(colunas_banco, 'contasagenda', 'ao_executa_assistente')
-
-
-        self.move(colunas_banco, 201, 211)
-
-
-        self.inverte_coluna(colunas_banco, 'parhrpesq', 'habilita_thread')
-
-        # Criar um dicionário para armazenar os resultados
-        dicionario = {}
-
-        for col, value in zip(colunas_banco, parametros):
-            dicionario[col] = value
-
-        del(dicionario['valorramal'])
-        del(dicionario['ao_inverte_data'])
-
-
-        self.inverte_ordem(dicionario, 'parfusohorario', 'ao_executa_assistente')  
-
-        self.inverte_ordem(dicionario, 'suporte_soma', 'parfusohorario')  
-        self.inverte_ordem(dicionario, 'contasagenda', 'suporte_soma')  
-        self.inverte_ordem(dicionario, 'cadin_nome_email', 'cadin_porta') 
-        self.inverte_ordem(dicionario, 'cadin_usuario', 'cadin_nome_email') 
-        self.inverte_ordem(dicionario, 'cadin_senha', 'cadin_usuario') 
-        self.inverte_ordem(dicionario, 'ao_requer_autenticacao', 'cadin_senha') 
-        self.inverte_ordem(dicionario, 'ao_txt_exp_numerico', 'ao_requer_autenticacao') 
-
-        self.inverte_ordem(dicionario, 'ao_exp_ddd_separado', 'ao_txt_exp_numerico') 
-
-        self.inverte_ordem(dicionario, 'ao_taxa', 'ao_exp_ddd_separado') 
-        self.inverte_ordem(dicionario, 'tipo_taxa', 'ao_taxa') 
-        self.inverte_ordem(dicionario, 'tipo_taxa', 'paracrescimo')
-        self.inverte_ordem(dicionario, 'paracrescimo', 'paracrescimomin')
-        self.inverte_ordem(dicionario, 'parhrpesq', 'habilita_thread')  
-
-
-        dicionario['parimagem'] = None
-
-        valores = list(dicionario.values())
-
-        for i, e in enumerate(valores):
+        for i, e in enumerate(parametros):
             if (type(e) == datetime.datetime):
-                e = self.corrige_time(valores, i)
+                e = self.corrige_time(parametros, i)
 
-        self.pg.execute("""INSERT INTO cadpar (nreg, partxs, partxicm, parseg, parprcimp, partarminnac, partxacre, partarminint, partarint, parminacres, parposramal, parnumramal, parposdata, parnumdata, parposhora, parnumhora, parposdurhor, parnumdurhor, parposdurmin, parnumdurmin, parposdurseg, parnumdurseg, parposnr, parnumnr, parposdest, parnumdest, partippabx, parcommport, parstopbits, parbauderate, pardatabits, parparidade, parxonent, parxonsai, partotcarac, partempomanha, partempotarde, partemponoite, partempomad, parcodarea, parultreg, partel0900min, horcelini, horcelfim, horcelini2, horcelifim2, desccel, celprcarea, celprcest, cor, parlic, curva_a, curva_b, curva_c, parimagem, parmindest, sublinha_relatorio, vl_cobrar, localidade, uf_localidade, receber_ligacoes, valor_ligacoes_recebidas, parpos_identrada, parnum_identrada, parposdurmin_e, parnumdurmin_e, parposdurhor_e, parnumdurhor_e, parposdurseg_e, parnumdurseg_e, parposhora_e, parnumhora_e, parposdata_e, parnumdata_e, parposramal_e, parnumramal_e, parposnr_e, parnumnr_e, ao_codigo_area, ao_hrfim, ao_datawindows, operadora_padrao, vigencia, ao_vigencia, modelo, parpostronco, parnumtronco, parpostronco_e, parnumtronco_e, parposcodigo, parnumcodigo, ao_rotacusto, ao_segduracao, ao_senha, ao_dt_americano, ao_dt_s_formato, ao_hr_s_formato, ao_rotacusto_tronco, ao_scheduler, reldia, periodicidade, ao_recebida, dt_reldia, fromadress, fromname, subject, smtp, userid, parpospmam_e, parnumpmam_e, parpospmam, parnumpmam, ao_valor_cheio, local_mesa_pc, ao_autenticacao, senha_autenticacao, prioridade, ao_confirmacao, usuario_info, forma_scheduler, dt_reldia_n, email_info, email, ao_txt_tpdados, ao_txt_tptipo, ao_txt_exp, ao_txt_dir, ao_txt_file, ao_data_det, ao_data_det_e, parpos_data_dia, parnum_data_dia, parpos_data_dia_e, parnum_data_dia_e, parpos_data_mes, parnum_data_mes, parpos_data_mes_e, parnum_data_mes_e, parpos_data_ano, parnum_data_ano, parpos_data_ano_e, parnum_data_ano_e, ao_fator_convert, ao_tipo_convert, vl_tipo_convert, tcp_host, tcp_porta, tcp_tipo, ao_utiliza_tempo_espera, parposdurmin_e2, parnumdurmin_e2, parposdurseg_e2, parnumdurseg_e2, versao_bd, ao_portamanual, ao_menu, ao_rel_particular, ao_formato_relatorio, ao_tarifa_ligacao, ao_atualizacao, email_responsavel, ao_multi_site, intervalo_alternancia, host_pabx, porta_pabx, senha_proxy, porta_proxy, usuario_proxy, servidor_proxy, ao_autenticacao_proxy, porta_internet, ao_utiliza_proxy, ao_importa_sem_telefone, tolerancia, ao_mascara_telefone, celprcreg, parsite, paritem, atualiza_status_ramais, parposadicional, parnumadicional, parposadicional_e, parnumadicional_e, usuario_pabx, senha_usuario_pabx, utiliza_login_pabx, parfusohorario, suporte_soma, qtd_bilhete_tarifacao, contasagenda, ao_executa_assistente, ao_gera_arq_separador, separador_arq, database_mysql, ao_txt_exp_entrante, dsmysql, ao_processador, parreiniciatcp, ramaisagenda, cadin_smtp, cadin_nome_email, cadin_usuario, cadin_senha, ao_requer_autenticacao, ao_txt_exp_numerico, ao_exp_ddd_separado, ao_taxa, tipo_taxa, paracrescimo, paracrescimomin, cadin_porta, ao_txt_exp_ramal, pardatpesq, habilita_thread, parhrpesq) values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);""", (valores))
+        parametros = tuple(parametros)
+
+        self.pg.execute("""INSERT INTO cadpar (nreg, partxs, partxicm, parseg, parprcimp, partarminnac, partxacre, partarminint, partarint, parminacres, parposramal, parnumramal, parposdata, parnumdata, parposhora, parnumhora, parposdurhor, parnumdurhor, parposdurmin, parnumdurmin, parposdurseg, parnumdurseg, parposnr, parnumnr, parposdest, parnumdest, partippabx, parcommport, parstopbits, parbauderate, pardatabits, parparidade, parxonent, parxonsai, partotcarac, partempomanha, partempotarde, partemponoite, partempomad, parcodarea, parultreg, partel0900min, horcelini, horcelfim, horcelini2, horcelifim2, desccel, celprcarea, celprcest, cor, parlic, curva_a, curva_b, curva_c, parmindest, sublinha_relatorio, vl_cobrar, localidade, uf_localidade, receber_ligacoes, valor_ligacoes_recebidas, parpos_identrada, parnum_identrada, parposdurmin_e, parnumdurmin_e, parposdurhor_e, parnumdurhor_e, parposdurseg_e, parnumdurseg_e, parposhora_e, parnumhora_e, parposdata_e, parnumdata_e, parposramal_e, parnumramal_e, parposnr_e, parnumnr_e, ao_codigo_area, ao_hrfim, ao_datawindows, operadora_padrao, vigencia, ao_vigencia, modelo, parpostronco, parnumtronco, parpostronco_e, parnumtronco_e, parposcodigo, parnumcodigo, ao_rotacusto, ao_segduracao, ao_senha, ao_dt_americano, ao_dt_s_formato, ao_hr_s_formato, ao_rotacusto_tronco, ao_scheduler, reldia, periodicidade, ao_recebida, dt_reldia, fromadress, fromname, subject, smtp, userid, parpospmam_e, parnumpmam_e, parpospmam, parnumpmam, ao_valor_cheio, local_mesa_pc, ao_autenticacao, senha_autenticacao, prioridade, ao_confirmacao, usuario_info, forma_scheduler, dt_reldia_n, email_info, email, ao_txt_tpdados, ao_txt_tptipo, ao_txt_exp, ao_txt_dir, ao_txt_file, ao_data_det, ao_data_det_e, parpos_data_dia, parnum_data_dia, parpos_data_dia_e, parnum_data_dia_e, parpos_data_mes, parnum_data_mes, parpos_data_mes_e, parnum_data_mes_e, parpos_data_ano, parnum_data_ano, parpos_data_ano_e, parnum_data_ano_e, ao_fator_convert, ao_tipo_convert, vl_tipo_convert, tcp_host, tcp_porta, tcp_tipo, ao_utiliza_tempo_espera, parposdurmin_e2, parnumdurmin_e2, parposdurseg_e2, parnumdurseg_e2, versao_bd, ao_portamanual, ao_menu, ao_rel_particular, ao_formato_relatorio, ao_tarifa_ligacao, ao_atualizacao, email_responsavel, ao_multi_site, intervalo_alternancia, host_pabx, porta_pabx, senha_proxy, porta_proxy, usuario_proxy, servidor_proxy, ao_autenticacao_proxy, porta_internet, ao_utiliza_proxy, ao_importa_sem_telefone, tolerancia, ao_mascara_telefone, celprcreg, parsite, paritem, atualiza_status_ramais, parposadicional, parnumadicional, parposadicional_e, parnumadicional_e, usuario_pabx, senha_usuario_pabx, utiliza_login_pabx, parfusohorario, suporte_soma, qtd_bilhete_tarifacao, contasagenda, ao_executa_assistente, ao_gera_arq_separador, separador_arq, database_mysql, ao_txt_exp_entrante, dsmysql, ao_processador, parreiniciatcp, ramaisagenda, cadin_smtp, cadin_nome_email, cadin_usuario, cadin_senha, ao_requer_autenticacao, ao_txt_exp_numerico, ao_exp_ddd_separado, ao_taxa, tipo_taxa, paracrescimo, paracrescimomin, cadin_porta, ao_txt_exp_ramal, pardatpesq, habilita_thread, parhrpesq, ao_cadram_automatico, ao_trata_extensao) values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);""", (parametros))
 
         self.conexao_pg.commit()
-    
+
 
     def departamento(self):
         #   ========   DEPARTAMENTO   ========   +
@@ -193,7 +146,7 @@ class Tabelas:
 
 
     def cadram(self):
-        self.fb.execute("select * from cadram")
+        self.fb.execute("SELECT ramcod, ramdes, ramtel, cuscod, flag, email, valor_ramal, flag_pre_aviso, flag_vencimento, tempo_ramal, agrega_servico, ao_bloqueado, ramal_liberado, ao_tarifa_entrante, nreg, vigencia_inicial, vigencia_final, numero_registro, ao_exibe_agenda, senha_ramal_ip, ao_ramal_ip, msg_ramal_ip, ao_tarifa_entrantestronco, localizacao, observacao, ao_passa_supervisao, ao_envia_email, ao_vigencia FROM cadram")
         ramais = self.fb.fetchall()
 
         for ramal in ramais:            
@@ -202,22 +155,11 @@ class Tabelas:
             self.corrige_time(ramal, 15)
             self.corrige_time(ramal, 16)
 
-            self.inverte_ordem(ramal, 18, 20)
-
-            ramal.insert(22, None)
-
-            ramal.append(None)
-
-            print(len(ramal))
             ramal = tuple(ramal)
 
-            for a, e in enumerate(ramal):
-                print(f'{a} -- {e} -- {type(e)}')
-            
-
             self.pg.execute("""INSERT INTO cadram
-            (ramcod, ramdes, ramtel, cuscod, flag, email, valor_ramal, flag_pre_aviso, flag_vencimento, tempo_ramal, agrega_servico, ao_bloqueado, ramal_liberado, ao_tarifa_entrante, nreg, vigencia_inicial, vigencia_final, numero_registro, ao_exibe_agenda, senha_ramal_ip, ao_ramal_ip, msg_ramal_ip, ao_ramail_ip, ao_tarifa_entrantestronco, localizacao, observacao, ao_passa_supervisao, ao_envia_email, ao_vigencia)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);""", ramal)
+            (ramcod, ramdes, ramtel, cuscod, flag, email, valor_ramal, flag_pre_aviso, flag_vencimento, tempo_ramal, agrega_servico, ao_bloqueado, ramal_liberado, ao_tarifa_entrante, nreg, vigencia_inicial, vigencia_final, numero_registro, ao_exibe_agenda, senha_ramal_ip, ao_ramal_ip, msg_ramal_ip, ao_tarifa_entrantestronco, localizacao, observacao, ao_passa_supervisao, ao_envia_email, ao_vigencia)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);""", ramal)
 
         self.conexao_pg.commit()
 
@@ -267,9 +209,6 @@ class Tabelas:
         filtros = self.fb.fetchall()
 
         for filtro in filtros:
-            filtro = list(filtro)
-            
-            filtro.append(None)
             
             filtro = tuple(filtro)
 
@@ -312,6 +251,10 @@ class Tabelas:
         opers = self.fb.fetchall()
 
         for oper in opers:
+            
+            if (len(oper) >= 13):
+                oper = oper[0:13]
+
             self.pg.execute("""INSERT INTO cadoper (opercod, operdes, vigencia, intervalo_local, inicio_local, valor_minimo_local, intervalo_ddd, inicio_ddd, intervalo_ddi, inicio_ddi, intervalo_cel, inicio_cel, flag_insercao) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);""", oper)
 
         self.conexao_pg.commit()
@@ -351,19 +294,15 @@ class Tabelas:
 
 
     def cadope(self):
-        self.fb.execute("select * from cadope")
+        self.fb.execute("select opecod, openom, opesen, email, foto, ao_monitor, opepage, ao_consulta_valor_real, ao_supervisor, login_web, senha_web, ao_exibe_dashboard, ramal_operador, ao_supervisor_cc, ao_supervisor_dep, ao_acesso_total_web, nr_template, cor_botao, cor_botao_mouse, cor_panel from cadope")
         cadopes = self.fb.fetchall()
 
         for cadope in cadopes:
             cadope = list(cadope)
 
             cadope[4] = None
-
-            cadope.insert(11, None)
-            cadope.insert(11, None)
-            cadope.insert(11, None)
         
-            self.pg.execute("""INSERT INTO cadope (opecod, openom, opesen, email, foto, ao_monitor, opepage, ao_consulta_valor_real, ao_supervisor, login_web, senha_web, "valid", "role", ao_exibe_dashboard, ramal_operador, ao_supervisor_cc, ao_supervisor_dep, ao_acesso_total_web) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);""", cadope)
+            self.pg.execute("""INSERT INTO cadope (opecod, openom, opesen, email, foto, ao_monitor, opepage, ao_consulta_valor_real, ao_supervisor, login_web, senha_web, ao_exibe_dashboard, ramal_operador, ao_supervisor_cc, ao_supervisor_dep, ao_acesso_total_web, nr_template, cor_botao, cor_botao_mouse, cor_panel) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);""", cadope)
 
         self.conexao_pg.commit()
 
@@ -416,40 +355,22 @@ class Tabelas:
 
         self.conexao_pg.commit()
 
+
+    def aumenta(self, barra):
+       progressBar = barra
+       valor = progressBar.value() + 6 
+       progressBar.setValue(valor)
+
+
+    def migrar(self, barra):
+        func = [self.limpa_bd, self.cadpar, self.departamento, self.cadcus, self.cadram, self.cadconta, self.tronco,
+                self.gp_tronco, self.filtro, self.agenda, self.operadoras, self.hr_operadora, self.cadope, self.cadaux,
+                self.id_entrada, self.opcional, self.corrige_sequences]
         
-    def migrar(self):
-        self.limpa_bd()
-
-        self.cadpar()  
-
-        self.departamento()
-
-        self.cadcus()
-
-        self.cadram()
-
-        self.cadconta()
-
-        self.tronco()
-
-        self.gp_tronco()
-
-        self.filtro()
-
-        self.agenda()
-
-        self.operadoras()
-
-        self.hr_operadora()
-
-        self.cadope()
-
-        self.cadaux()
-
-        self.id_entrada()
-
-        self.opcional()
-
-        self.corrige_sequences()
+        for f in func:
+            f()
+            self.aumenta(barra)
 
         self.pg.close()
+        
+        self.fb.close()

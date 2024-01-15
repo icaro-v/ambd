@@ -4,8 +4,9 @@ class ui(QMainWindow, QWidget, Ui_migr):
     def __init__(self) -> None:
         super(ui, self).__init__()
         self.setupUi(self)
-        self.setWindowTitle("Conversor")
+        self.setWindowTitle("ASSISTENTE DE MIGRAÇÃO DE BANCO DE DADOS")
         self.setCentralWidget(self.centralwidget)
+
 
     #  # --------------------        Botões        -------------------- #
                
@@ -40,6 +41,26 @@ class ui(QMainWindow, QWidget, Ui_migr):
 
         self.msg_base_importada.setHidden(True)
         self.icon_base_importada.setHidden(True)
+
+        self.imgs()
+
+
+    def imgs(self):
+        pixmap = QPixmap()
+        pixmap.loadFromData(binario(3))
+        self.label_7.setPixmap(pixmap)
+
+        pixmap.loadFromData(binario(0))
+        self.label_3.setPixmap(pixmap)
+
+        pixmap.loadFromData(binario(2))
+        self.label_4.setPixmap(pixmap)
+
+        pixmap.loadFromData(binario(1))
+        self.label_8.setPixmap(pixmap)
+
+        pixmap.loadFromData(binario(3))
+        self.label_9.setPixmap(pixmap)
 
 
     def vai_firebird(self):
@@ -95,6 +116,9 @@ class ui(QMainWindow, QWidget, Ui_migr):
 
             
             criar_base_pg(nome_base)
+            self.nome_nova_base.setDisabled(True)
+            self.btn_cria_base.setDisabled(True)
+
             if (botao_zerar):
                 self.btn_zera_base.setDisabled(False)
 
@@ -111,18 +135,22 @@ class ui(QMainWindow, QWidget, Ui_migr):
         
     def zerar(self):
         falta_criar_base = self.icon_banco_criado.isHidden()
-        caminho_dump = self.caminho_base_zerada.text()
+        caminho_base_zerada = self.caminho_base_zerada.text()
 
         if (falta_criar_base):
             self.msg = msg(3)
             self.msg.show()            
             return
 
-        if ((len(caminho_dump) > 0) and (caminho_dump.isspace() == False)):
-            edita_bat(0, self.nome_nova_base.text(), caminho_dump)
+        if ((len(caminho_base_zerada) > 0) and (caminho_base_zerada.isspace() == False)):
+            # self.setCursor(QCursor.setShape())
 
-            importa_base_zerada()
+            importa_base_zerada(self.nome_nova_base.text(), caminho_base_zerada)
 
+            self.setCursor(Qt.ArrowCursor)
+
+            self.caminho_base_zerada.setDisabled(True)
+            self.btn_busca_dump.setDisabled(True)
 
             self.btn_zera_base.setDisabled(True)
             self.msg_base_importada.setHidden(False)
@@ -162,7 +190,7 @@ Base de Dados de Destino: {self.nome_nova_base.text()}""")
     def processa(self):
         self.tabelas = Tabelas(self.caminho_gdb.text(), self.nome_nova_base.text())
 
-        self.tabelas.migrar()
+        self.tabelas.migrar(self.progressBar)
 
         self.paginas.setCurrentWidget(self.guarda)
 
@@ -175,14 +203,19 @@ Base de Dados de Destino: {self.nome_nova_base.text()}""")
 
     def guardar(self):
         local = self.caminho_base_importada.text()
-
+        nome_nova_base = self.nome_nova_base.text()
+        
         if(os.path.exists(local)):
-            edita_bat(1, self.nome_nova_base.text(), local)
 
-            dump()
+            self.setCursor(Qt.WaitCursor)
+
+            dump(nome_nova_base, local)
+
 
             self.paginas.setCurrentWidget(self.conclusao)
+            self.setCursor(Qt.ArrowCursor)
             return
+        
 
         self.msg = msg(6)
         self.msg.show()
@@ -201,26 +234,21 @@ Base de Dados de Destino: {self.nome_nova_base.text()}""")
 
         cur = pg.cursor()
 
-        sql = f"SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = 'teste' AND usename = 'postgres';"
+        sql = f"SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = '{self.nome_nova_base.text()}' AND usename = 'postgres';"
 
         cur.execute(sql)
 
-        cur.execute(f'drop database {self.nome_nova_base.text()}')
-
-
-        os.remove('base.bat')
-        
+        cur.execute(f'drop database {self.nome_nova_base.text()}')      
 
         pg.close()
         
         app.closeAllWindows()
-
+    
 
 def inicia_app():
     window.show()
-    app.exec()
+    sys.exit(app.exec())
 
 
 app = QApplication(sys.argv)
 window = ui()
-

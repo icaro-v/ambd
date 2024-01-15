@@ -1,4 +1,4 @@
-import psycopg2, os, socket, os
+import psycopg2, os, socket, subprocess
 
 ip = socket.gethostbyname(socket.gethostname())
 
@@ -26,40 +26,37 @@ def base_ja_existe(nome_base):
 
 def criar_base_pg(nome_base):
     cur = pg.cursor()
-    cur.execute(f'''CREATE database {nome_base};''')
+    cur.execute(f'''CREATE database "{nome_base}";''')
     pg.close()
 
 
-def edita_bat(opcao, nome_base, caminho_dump):
-    with open('base.bat', 'w') as bat:
-        bat.write(f'''SET PGPASSWORD=Supinf12!
-SET PGUSER=postgres
-SET PGHOST={ip}
-SET PGDATABASE={nome_base}\n\n''')
-        
-        if (opcao == 0):
-            bat.write(f'psql -f "{caminho_dump}"')
+def importa_base_zerada(nome_base, caminho_base_zerada):
+    nome_base = nome_base
+    base_zerada = caminho_base_zerada
+
+    os.environ["PGPASSWORD"] = "Supinf12!"
+    os.environ["PGUSER"] = "postgres"
+    os.environ["PGHOST"] = ip 
+    os.environ["PGDATABASE"] = nome_base
+
+    drop_schema = "drop schema if exists public cascade;"
+    restore = f'pg_restore -d {nome_base} "{base_zerada}"'
+
+    subprocess.run(f'psql -c "{drop_schema}"', shell=True)
+    subprocess.run(restore, shell=True)
 
 
-        if (opcao == 1):
-            bat.write(f'pg_dump -f "{caminho_dump}/{nome_base}" --format=c\n\n')
-            bat.write(f'''SET PGPASSWORD=Supinf12!
-SET PGUSER=postgres
-SET PGHOST={ip}
-SET PGDATABASE=postgres\n\n''')
-        
-        bat.write('\nexit')
+def dump(nome_base, caminho_nova_base):
+    nome_base = nome_base
+    caminho = caminho_nova_base
 
+    os.environ["PGPASSWORD"] = "Supinf12!"
+    os.environ["PGUSER"] = "postgres"
+    os.environ["PGHOST"] = ip 
+    os.environ["PGDATABASE"] = nome_base
 
-def importa_base_zerada():
-    os.system('start base.bat')
+    nome_dump = f'{caminho}/{nome_base}'
 
-
-def dump():
-    os.system('start base.bat')
-
-    pg.close()
+    subprocess.run(f'pg_dump -f "{nome_dump}" --format=c', shell=True)
     
-
-def dropa():
-    os.system('start base.bat')
+    pg.close()
