@@ -62,6 +62,9 @@ class ui(QMainWindow, QWidget, Ui_migr):
         pixmap.loadFromData(binario(3))
         self.label_9.setPixmap(pixmap)
 
+        pixmap.loadFromData(binario(4))
+        self.label_10.setPixmap(pixmap)
+
 
     def vai_firebird(self):
         self.paginas.setCurrentWidget(self.firebird)

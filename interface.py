@@ -1208,6 +1208,25 @@ class Ui_migr(object):
 "	border: 2px solid rgb(43, 50, 61);\n"
 "}")
         self.btn_guarda_dump.setIcon(icon3)
+        self.labelBoxBlenderInstalation_19 = QLabel(self.frame_9)
+        self.labelBoxBlenderInstalation_19.setObjectName(u"labelBoxBlenderInstalation_19")
+        self.labelBoxBlenderInstalation_19.setGeometry(QRect(220, 10, 481, 31))
+        self.labelBoxBlenderInstalation_19.setFont(font7)
+        self.labelBoxBlenderInstalation_19.setStyleSheet(u"")
+        self.labelBoxBlenderInstalation_20 = QLabel(self.frame_9)
+        self.labelBoxBlenderInstalation_20.setObjectName(u"labelBoxBlenderInstalation_20")
+        self.labelBoxBlenderInstalation_20.setGeometry(QRect(220, 50, 291, 17))
+        self.labelBoxBlenderInstalation_20.setFont(font6)
+        self.labelBoxBlenderInstalation_20.setStyleSheet(u"")
+        self.textBrowser_8 = QTextBrowser(self.frame_9)
+        self.textBrowser_8.setObjectName(u"textBrowser_8")
+        self.textBrowser_8.setGeometry(QRect(220, 80, 511, 41))
+        self.textBrowser_8.setStyleSheet(u"color: rgb(98, 103, 111);")
+        self.label_10 = QLabel(self.frame_9)
+        self.label_10.setObjectName(u"label_10")
+        self.label_10.setGeometry(QRect(60, 0, 141, 120))
+        self.label_10.setPixmap(QPixmap(u"converter.png"))
+        self.label_10.setScaledContents(True)
         self.paginas.addWidget(self.guarda)
         self.conclusao = QWidget()
         self.conclusao.setObjectName(u"conclusao")
@@ -1437,6 +1456,15 @@ class Ui_migr(object):
         self.caminho_base_importada.setPlaceholderText(QCoreApplication.translate("migr", u"Caminho de destino do banco de dados convertido", None))
         self.labelBoxBlenderInstalation_29.setText(QCoreApplication.translate("migr", u"DESTINO DO BANCO DE DADOS CONVERTIDO", None))
         self.btn_guarda_dump.setText(QCoreApplication.translate("migr", u"Avan\u00e7ar", None))
+        self.labelBoxBlenderInstalation_19.setText(QCoreApplication.translate("migr", u"ASSISTENTE DE MIGRA\u00c7\u00c3O DE BANCO DE DADOS", None))
+        self.labelBoxBlenderInstalation_20.setText(QCoreApplication.translate("migr", u"MIGRA\u00c7\u00c3O REALIZADA", None))
+        self.textBrowser_8.setHtml(QCoreApplication.translate("migr", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">A migra\u00e7\u00e3o entre as bases foi realizada.</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Agora, selecione um local para salvar a base de dados convertida.</p></body></html>", None))
+        self.label_10.setText("")
         self.label_9.setText("")
         self.btn_concluir.setText(QCoreApplication.translate("migr", u"Concluir", None))
         self.labelBoxBlenderInstalation_17.setText(QCoreApplication.translate("migr", u"MIGRA\u00c7\u00c3O DE DADOS", None))
