@@ -11,32 +11,29 @@ class msg(QWidget):
         super().__init__()
         
         layout = QVBoxLayout()
-        titulo = []
-        titulo.append("Erro!")
-        titulo.append("Nome da base incorreto!")
-        titulo.append("Base já existente!")
-        titulo.append("Não há base criada!")
-        titulo.append("Falta zerar base")
-        titulo.append("Caminho da base incorreto!")
-        titulo.append("Destino inválido!")
+        titulo = [
+            "Atenção!",
+            "Nome da base incorreto!",
+            "Base já existente!",
+            "Não há base criada!",
+            "Falta zerar base",
+            "Caminho da base incorreto!",''
+            "Destino inválido!"
+        ]
 
         self.setWindowTitle(titulo[num])
 
-        self.label = []
-        self.label.append(QLabel("""Não foi possível encontar o arquivo DADOS.GDB no diretório informado.\n\nPor favor informe outro diretório."""))
+        mensagens = [
+        """Não foi possível encontar o arquivo DADOS.GDB no diretório informado.\n\nPor favor informe outro diretório.""",
+        """Por favor, informe corretamente um nome para a base que será criada.""",
+        """Já existe uma base com o nome informado. Por favor, escolha outro nome.""",
+        """É preciso criar uma base para receber os dados gerados. Por favor, crie uma para poder prosseguir.""",
+        """É necessário importar uma base zerada do Tarifador. Por favor, realize a importação para prosseguir.""",
+        """Não foi possível encontar a base zerada no diretório informado.\n\nPor favor informe outro diretório.""",
+        """O destino da base convertida não pode ser encontrado. Por favor, informe um destino válido."""
+        ]
 
-        self.label.append(QLabel("""Por favor, informe corretamente um nome para a base que será criada."""))
-
-        self.label.append(QLabel("""Já existe uma base com o nome informado. Por favor, escolha outro nome."""))
-
-        self.label.append(QLabel("""É preciso criar uma base para receber os dados gerados. Por favor, crie uma para poder prosseguir."""))
-
-        self.label.append(QLabel("""É necessário importar uma base zerada do Tarifador. Por favor, realize a importação para prosseguir."""))
-
-        self.label.append(QLabel("""Não foi possível encontar a base zerada no diretório informado.\n\nPor favor informe outro diretório."""))
-
-        self.label.append(QLabel("""O destino da base convertida não pode ser encontrado. Por favor, informe um destino válido."""))
-
-
-        layout.addWidget(self.label[num])
+        self.label = QLabel(mensagens[num])
+        layout.addWidget(self.label)
         self.setLayout(layout)
+
