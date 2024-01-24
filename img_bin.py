@@ -6,3 +6,24 @@ def binario(indice):
     # ['firebird', 'check', 'postgresql', 'logo', 'converter']
 
     return base64.b64decode(imgs[indice])
+
+
+def convert():
+    image_path = 'imgs/firebird.png'
+
+
+    # Passo 1: Carregar a imagem como dados binários
+    with open(image_path, 'rb') as arq:
+        img = arq.read()
+    
+
+    # Passo 2: converte os bytes para base64
+    image_base64 = base64.b64encode(img).decode()
+
+
+    # Passo 3: printa a imagem em base64, que deve ser salva na lista 
+    # de imagens utilizadas no AMBD, armazenada na variável imgs
+    # da funcao binario() 
+    print(image_base64)
+
+
