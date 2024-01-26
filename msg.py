@@ -37,3 +37,4 @@ class msg(QWidget):
         layout.addWidget(self.label)
         self.setLayout(layout)
 
+        self.setFixedSize(self.sizeHint())
