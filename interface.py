@@ -859,7 +859,7 @@ class Ui_migr(object):
         self.labelBoxBlenderInstalation_6.setStyleSheet(u"")
         self.label_4 = QLabel(self.frame_2)
         self.label_4.setObjectName(u"label_4")
-        self.label_4.setGeometry(QRect(10, 40, 151, 121))
+        self.label_4.setGeometry(QRect(20, 40, 141, 121))
         self.label_4.setPixmap(QPixmap(u"postgresql.png"))
         self.label_4.setScaledContents(True)
         self.labelBoxBlenderInstalation_7 = QLabel(self.frame_2)
