@@ -36,7 +36,7 @@ class Tabelas:
         self.alter_sequence('g_cadcha', 1)
         self.alter_sequence('g_cadram', 1)
         self.alter_sequence('g_plano', 1)
-        # self.alter_sequence('g_cliente', 1)
+        self.alter_sequence('g_cliente', 1)
         
         self.conexao_pg.commit()
 
@@ -86,16 +86,16 @@ class Tabelas:
 
 
 
-        if(seq_cadcha == None):
+        if(seq_cadcha == None or seq_cadcha == 0):
             seq_cadcha = 1
 
-        if(seq_cadram == None):
+        if(seq_cadram == None or seq_cadram == 0):
             seq_cadram = 1
 
-        if(seq_plano == None):
+        if(seq_plano == None or seq_plano == 0):
             seq_plano = 1
 
-        if(seq_cli == None):
+        if(seq_cli == None or seq_cli == 0):
             seq_cli = 1
 
         self.alter_sequence('g_cadcha', seq_cadcha)
