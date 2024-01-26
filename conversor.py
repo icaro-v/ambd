@@ -6,6 +6,7 @@ class ui(QMainWindow, QWidget, Ui_migr):
         self.setupUi(self)
         self.setWindowTitle("ASSISTENTE DE MIGRAÇÃO DE BANCO DE DADOS")
         self.setCentralWidget(self.centralwidget)
+        self.setWindowIcon(QIcon(QPixmap.fromImage(QImage.fromData(binario(5)))))
 
 
     #  # --------------------        Botões        -------------------- #
