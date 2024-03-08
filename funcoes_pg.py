@@ -6,7 +6,7 @@ ip = socket.gethostbyname(socket.gethostname())
 pg = psycopg2.connect(
         database = "postgres",
         user = 'postgres',
-        password = 'Supinf12!',
+        password = '********',
         host = ip
     )
 
@@ -35,7 +35,7 @@ def importa_base_zerada(nome_base, caminho_base_zerada):
     nome_base = nome_base
     base_zerada = caminho_base_zerada
 
-    os.environ["PGPASSWORD"] = "Supinf12!"
+    os.environ["PGPASSWORD"] = "********"
     os.environ["PGUSER"] = "postgres"
     os.environ["PGHOST"] = ip 
     os.environ["PGDATABASE"] = nome_base
@@ -51,7 +51,7 @@ def dump(nome_base, caminho_nova_base):
     nome_base = nome_base
     caminho = caminho_nova_base
 
-    os.environ["PGPASSWORD"] = "Supinf12!"
+    os.environ["PGPASSWORD"] = "********"
     os.environ["PGUSER"] = "postgres"
     os.environ["PGHOST"] = ip 
     os.environ["PGDATABASE"] = nome_base
