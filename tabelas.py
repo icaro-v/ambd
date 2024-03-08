@@ -7,7 +7,7 @@ class Tabelas:
 
         self.conexao_fb = fdb.connect(host=ip_local, database=caminho,user="sysdba",password="masterkey")
 
-        self.conexao_pg = psycopg2.connect(host=ip_local, database=nome_nova_base, user='postgres', password = 'Supinf12!')
+        self.conexao_pg = psycopg2.connect(host=ip_local, database=nome_nova_base, user='postgres', password = '********')
 
         self.conexao_pg.autocommit = True
 
