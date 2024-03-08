@@ -231,7 +231,7 @@ Base de Dados de Destino: {self.nome_nova_base.text()}""")
         pg = psycopg2.connect(
             database = 'postgres',
             user = 'postgres',
-            password = 'Supinf12!',
+            password = '********',
             host = ip
         )
 
